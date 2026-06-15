@@ -25,53 +25,54 @@
         <aside class="guide-nav">
             <h3>Navigasi</h3>
             <ul>
-                <li><a href="#pendahuluan" class="active">Pendahuluan</a></li>
-                <li><a href="#data-lokal">Penyimpanan Data</a></li>
-                <li><a href="#izin-aplikasi">Izin Aplikasi (Permissions)</a></li>
-                <li><a href="#keamanan">Keamanan PIN</a></li>
-                <li><a href="#perubahan">Perubahan Kebijakan</a></li>
+                <li><a href="#komitmen-offline" class="active">Komitmen Offline</a></li>
+                <li><a href="#tidak-ada-transfer">Transfer Data</a></li>
+                <li><a href="#izin-perangkat">Izin Perangkat</a></li>
+                <li><a href="#penghapusan-data">Penghapusan Data</a></li>
+                <li><a href="#perubahan-kebijakan">Perubahan Kebijakan</a></li>
             </ul>
         </aside>
 
         <!-- Privacy Policy Content -->
         <main class="guide-content">
-            <section id="pendahuluan" class="guide-section" style="padding: 0; border: none;">
-                <h2>Kebijakan Privasi JagoKasir</h2>
-                <p>Kami sangat menghargai privasi Anda. Halaman ini menjelaskan bagaimana aplikasi **JagoKasir** mengelola dan menjaga keamanan informasi usaha Anda. JagoKasir dirancang sebagai aplikasi kasir (POS) **offline-first**, yang berarti kami tidak mengumpulkan, menyimpan, atau mengirimkan data transaksi Anda ke server eksternal mana pun.</p>
+            <section id="komitmen-offline" class="guide-section" style="padding: 0; border: none;">
+                <h2>Komitmen 100% Offline & Lokal</h2>
+                <p>Kami sangat menghormati hak privasi dan keamanan finansial bisnis Anda. Aplikasi JagoKasir Offline ini dibuat dengan prinsip privasi mutlak di mana pengembang Aplikasi tidak memantau, tidak mengoleksi, dan tidak memiliki sarana transmisi online apa pun.</p>
+                <p>Seluruh database berisi nama produk, harga modal, harga jual, rincian transaksi penjualan bulanan, jumlah stok gudang, dan kata sandi PIN staf dienkripsi/disimpan lokal pada partisi direktori penyimpanan internal yang aman pada perangkat smartphone Anda.</p>
             </section>
 
-            <section id="data-lokal" class="guide-section" style="padding: 0; border: none;">
-                <h2>Penyimpanan Data Lokal</h2>
-                <p>Seluruh data usaha Anda yang dimasukkan ke dalam aplikasi JagoKasir, termasuk namun tidak terbatas pada:</p>
+            <section id="tidak-ada-transfer" class="guide-section" style="padding: 0; border: none;">
+                <h2>Tidak Ada Transfer Data ke Pihak Ketiga</h2>
+                <p>Karena Aplikasi ini tidak menggunakan koneksi server eksternal, maka:</p>
                 <ul>
-                    <li>Daftar nama produk, SKU, barcode, harga beli, dan harga jual.</li>
-                    <li>Daftar kategori produk.</li>
-                    <li>Riwayat dan laporan transaksi penjualan harian/bulanan.</li>
-                    <li>Data akun staff (Owner, Admin, Kasir).</li>
-                    <li>Konfigurasi printer struk belanja.</li>
+                    <li>Tidak ada transmisi data penjualan Anda ke cloud pengembang atau pihak ketiga.</li>
+                    <li>Tidak ada skrip analitik pelacakan perilaku (seperti Firebase Analytics, Facebook SDK, dll.) yang berjalan di latar belakang.</li>
+                    <li>Tidak ada iklan berbasis minat atau penargetan lokasi geografi.</li>
                 </ul>
-                <p>Tersimpan secara lokal di dalam database relasional **SQLite** pada memori penyimpanan internal perangkat (smartphone/tablet) Anda sendiri. Kami tidak memiliki akses untuk membaca, menyalin, atau menghapus data-data tersebut.</p>
             </section>
 
-            <section id="izin-aplikasi" class="guide-section" style="padding: 0; border: none;">
-                <h2>Izin Aplikasi (Permissions)</h2>
-                <p>JagoKasir memerlukan beberapa izin akses pada perangkat Anda agar fitur-fitur aplikasi dapat berfungsi secara optimal:</p>
+            <section id="izin-perangkat" class="guide-section" style="padding: 0; border: none;">
+                <h2>Transparansi Penggunaan Izin Perangkat</h2>
+                <p>Untuk mendukung fitur fungsional operasional kasir fisik, Aplikasi memerlukan izin akses sistem Android/iOS berikut:</p>
+                <ul>
+                    <li><strong>Bluetooth & Lokasi</strong>: Digunakan hanya untuk memindai perangkat sekitar dan menghubungkan Aplikasi dengan printer thermal Bluetooth untuk mencetak struk belanja kertas secara instan.</li>
+                    <li><strong>Akses Penyimpanan / File</strong>: Diperlukan untuk menyimpan file ekspor cadangan database (.db) ke direktori unduhan (Downloads) perangkat, serta membaca file cadangan tersebut pada saat Anda melakukan pemulihan data (Restore).</li>
+                    <li><strong>Kamera Perangkat</strong>: Diperlukan untuk memfungsikan lensa kamera HP Anda sebagai pemindai barcode / kode SKU produk secara otomatis dari kemasan barang di masa depan.</li>
+                </ul>
+            </section>
+
+            <section id="penghapusan-data" class="guide-section" style="padding: 0; border: none;">
+                <h2>Penghapusan & Hak Data Anda</h2>
+                <p>Semua data adalah milik mutlak Anda. Jika Anda ingin menghapus seluruh data transaksi dan produk secara permanen, Anda dapat:</p>
                 <ol>
-                    <li><strong>Bluetooth & Lokasi (Bluetooth Serial)</strong>: Diperlukan untuk mendeteksi, menghubungkan, dan mengirimkan data cetak struk belanja ke printer thermal Bluetooth.</li>
-                    <li><strong>Kamera</strong>: Diperlukan untuk memindai barcode/QR Code produk secara instan melalui modul kamera perangkat Anda.</li>
-                    <li><strong>Penyimpanan Eksternal (Storage)</strong>: Diperlukan saat Anda melakukan ekspor laporan ke format PDF/CSV atau membuat file cadangan (backup) database secara manual ke kartu memori.</li>
+                    <li>Melakukan uninstall / hapus pemasangan Aplikasi dari perangkat smartphone Anda (sistem operasi HP secara otomatis menghapus direktori internal penyimpanan database lokal Aplikasi).</li>
+                    <li>Melakukan hapus cache / hapus data Aplikasi melalui menu setelan sistem operasi HP Anda.</li>
                 </ol>
             </section>
 
-            <section id="keamanan" class="guide-section" style="padding: 0; border: none;">
-                <h2>Keamanan PIN Akun</h2>
-                <p>Aplikasi ini mengamankan akses login staff Anda dengan mekanisme sandi **PIN (Personal Identification Number)**. Sandi PIN Anda tidak disimpan dalam bentuk teks biasa, melainkan disandikan menggunakan algoritma satu arah **BCrypt** yang sangat kuat langsung di database lokal Anda. Hal ini memastikan PIN tidak dapat dibaca kembali secara langsung oleh pihak mana pun.</p>
-            </section>
-
-            <section id="perubahan" class="guide-section" style="padding: 0; border: none;">
+            <section id="perubahan-kebijakan" class="guide-section" style="padding: 0; border: none;">
                 <h2>Perubahan Kebijakan Privasi</h2>
-                <p>Kami dapat memperbarui kebijakan privasi ini dari waktu ke waktu seiring dengan penambahan fitur-fitur baru pada aplikasi. Perubahan kebijakan akan diumumkan melalui pembaruan deskripsi pada halaman repository GitHub kami.</p>
-                <p>Jika ada pertanyaan lebih lanjut mengenai pengelolaan data lokal pada JagoKasir, silakan hubungi tim pengembang melalui halaman issue GitHub resmi kami.</p>
+                <p>Pengembang dapat memperbarui Kebijakan Privasi ini sewaktu-waktu sesuai pengembangan fitur. Pembaruan kebijakan akan selalu mengedepankan keamanan data offline dan komitmen kami untuk menjaga data UMKM tersimpan secara privat di dalam HP pengguna masing-masing.</p>
             </section>
         </main>
     </div>

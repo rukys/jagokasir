@@ -112,21 +112,17 @@ span {
 }
 
 .logo-icon {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: #050505;
     width: 38px;
     height: 38px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-sm);
     margin-right: 12px;
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.25);
 }
 
 .logo-icon img {
-    width: 24px;
-    height: 24px;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
 }
 
