@@ -20,6 +20,12 @@
   <img src="assets/screenshots/jagokasir_ss7.png" width="19%" />
   <img src="assets/screenshots/jagokasir_ss8.png" width="19%" />
   <img src="assets/screenshots/jagokasir_ss9.png" width="19%" />
+  <img src="assets/screenshots/jagokasir_ss10.png" width="19%" />
+</p>
+<p align="center">
+  <img src="assets/screenshots/jagokasir_ss11.png" width="19%" />
+  <img src="assets/screenshots/jagokasir_ss12.png" width="19%" />
+  <img src="assets/screenshots/jagokasir_ss13.png" width="19%" />
 </p>
 
 ---
