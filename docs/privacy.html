@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kebijakan Privasi | JagoKasir</title>
+    <meta name="description" content="Kebijakan Privasi JagoKasir - Aplikasi kasir offline pintar untuk UMKM. Data Anda 100% aman dan tersimpan lokal di perangkat Anda.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <div class="container guide-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="guide-nav">
+            <h3>Navigasi</h3>
+            <ul>
+                <li><a href="#pendahuluan" class="active">Pendahuluan</a></li>
+                <li><a href="#data-lokal">Penyimpanan Data</a></li>
+                <li><a href="#izin-aplikasi">Izin Aplikasi (Permissions)</a></li>
+                <li><a href="#keamanan">Keamanan PIN</a></li>
+                <li><a href="#perubahan">Perubahan Kebijakan</a></li>
+            </ul>
+        </aside>
+
+        <!-- Privacy Policy Content -->
+        <main class="guide-content">
+            <section id="pendahuluan" class="guide-section" style="padding: 0; border: none;">
+                <h2>Kebijakan Privasi JagoKasir</h2>
+                <p>Kami sangat menghargai privasi Anda. Halaman ini menjelaskan bagaimana aplikasi **JagoKasir** mengelola dan menjaga keamanan informasi usaha Anda. JagoKasir dirancang sebagai aplikasi kasir (POS) **offline-first**, yang berarti kami tidak mengumpulkan, menyimpan, atau mengirimkan data transaksi Anda ke server eksternal mana pun.</p>
+            </section>
+
+            <section id="data-lokal" class="guide-section" style="padding: 0; border: none;">
+                <h2>Penyimpanan Data Lokal</h2>
+                <p>Seluruh data usaha Anda yang dimasukkan ke dalam aplikasi JagoKasir, termasuk namun tidak terbatas pada:</p>
+                <ul>
+                    <li>Daftar nama produk, SKU, barcode, harga beli, dan harga jual.</li>
+                    <li>Daftar kategori produk.</li>
+                    <li>Riwayat dan laporan transaksi penjualan harian/bulanan.</li>
+                    <li>Data akun staff (Owner, Admin, Kasir).</li>
+                    <li>Konfigurasi printer struk belanja.</li>
+                </ul>
+                <p>Tersimpan secara lokal di dalam database relasional **SQLite** pada memori penyimpanan internal perangkat (smartphone/tablet) Anda sendiri. Kami tidak memiliki akses untuk membaca, menyalin, atau menghapus data-data tersebut.</p>
+            </section>
+
+            <section id="izin-aplikasi" class="guide-section" style="padding: 0; border: none;">
+                <h2>Izin Aplikasi (Permissions)</h2>
+                <p>JagoKasir memerlukan beberapa izin akses pada perangkat Anda agar fitur-fitur aplikasi dapat berfungsi secara optimal:</p>
+                <ol>
+                    <li><strong>Bluetooth & Lokasi (Bluetooth Serial)</strong>: Diperlukan untuk mendeteksi, menghubungkan, dan mengirimkan data cetak struk belanja ke printer thermal Bluetooth.</li>
+                    <li><strong>Kamera</strong>: Diperlukan untuk memindai barcode/QR Code produk secara instan melalui modul kamera perangkat Anda.</li>
+                    <li><strong>Penyimpanan Eksternal (Storage)</strong>: Diperlukan saat Anda melakukan ekspor laporan ke format PDF/CSV atau membuat file cadangan (backup) database secara manual ke kartu memori.</li>
+                </ol>
+            </section>
+
+            <section id="keamanan" class="guide-section" style="padding: 0; border: none;">
+                <h2>Keamanan PIN Akun</h2>
+                <p>Aplikasi ini mengamankan akses login staff Anda dengan mekanisme sandi **PIN (Personal Identification Number)**. Sandi PIN Anda tidak disimpan dalam bentuk teks biasa, melainkan disandikan menggunakan algoritma satu arah **BCrypt** yang sangat kuat langsung di database lokal Anda. Hal ini memastikan PIN tidak dapat dibaca kembali secara langsung oleh pihak mana pun.</p>
+            </section>
+
+            <section id="perubahan" class="guide-section" style="padding: 0; border: none;">
+                <h2>Perubahan Kebijakan Privasi</h2>
+                <p>Kami dapat memperbarui kebijakan privasi ini dari waktu ke waktu seiring dengan penambahan fitur-fitur baru pada aplikasi. Perubahan kebijakan akan diumumkan melalui pembaruan deskripsi pada halaman repository GitHub kami.</p>
+                <p>Jika ada pertanyaan lebih lanjut mengenai pengelolaan data lokal pada JagoKasir, silakan hubungi tim pengembang melalui halaman issue GitHub resmi kami.</p>
+            </section>
+        </main>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/components.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Simple script to handle active state of sidebar nav links on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.guide-nav a');
+            const sections = document.querySelectorAll('.guide-content section');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 150;
+                    if (window.scrollY >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

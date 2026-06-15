@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panduan Pengguna | JagoKasir</title>
+    <meta name="description" content="Panduan Lengkap JagoKasir - Pelajari cara setup printer Bluetooth, kelola stok barang, ekspor impor CSV, dan backup database kasir Anda.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <div class="container guide-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="guide-nav">
+            <h3>Daftar Isi</h3>
+            <ul>
+                <li><a href="#instalasi" class="active">Instalasi</a></li>
+                <li><a href="#setup-owner">Setup Awal Owner</a></li>
+                <li><a href="#setup-printer">Koneksi Printer</a></li>
+                <li><a href="#impor-csv">Impor Produk CSV</a></li>
+                <li><a href="#backup-restore">Backup & Restore</a></li>
+            </ul>
+        </aside>
+
+        <!-- Guide Content -->
+        <main class="guide-content">
+            <section id="instalasi" class="guide-section" style="padding: 0; border: none;">
+                <h2>Instalasi Aplikasi</h2>
+                <p>Saat ini JagoKasir dapat dijalankan pada perangkat bersistem operasi Android. Berikut cara menginstalnya:</p>
+                <ol>
+                    <li>Unduh file instalasi `.apk` resmi terbaru dari halaman **Releases** di repository GitHub JagoKasir.</li>
+                    <li>Buka file APK tersebut di smartphone Anda. Jika muncul peringatan keamanan tentang instalasi dari sumber tidak dikenal, aktifkan izin untuk file manager atau browser Anda.</li>
+                    <li>Ketuk **Install** dan tunggu hingga proses pemasangan selesai. Aplikasi siap digunakan!</li>
+                </ol>
+            </section>
+
+            <section id="setup-owner" class="guide-section" style="padding: 0; border: none;">
+                <h2>Setup Akun Owner Pertama Kali</h2>
+                <p>Saat pertama kali membuka aplikasi, Anda akan diarahkan ke layar **Onboarding** untuk mendaftarkan akun Owner toko Anda:</p>
+                <ul>
+                    <li><strong>Nama Lengkap</strong>: Masukkan nama lengkap Anda sebagai pemilik toko.</li>
+                    <li><strong>PIN Masuk</strong>: Buat PIN rahasia (4 hingga 6 digit angka) untuk melindungi data toko dari akses staff kasir biasa.</li>
+                    <li>Setelah terdaftar, Anda dapat langsung login menggunakan profil tersebut.</li>
+                </ul>
+                <p><em>Catatan: Hak akses Owner memiliki otoritas penuh untuk menambah Admin/Kasir baru di menu Pengaturan > Kelola Staff.</em></p>
+            </section>
+
+            <section id="setup-printer" class="guide-section" style="padding: 0; border: none;">
+                <h2>Menyambungkan Printer Thermal</h2>
+                <p>Untuk mencetak struk belanja, sambungkan printer thermal Anda dengan mengikuti langkah-langkah berikut:</p>
+                <ol>
+                    <li>Nyalakan Bluetooth pada printer thermal Anda serta pada smartphone/tablet Anda.</li>
+                    <li>Pasangkan (pair) perangkat printer thermal tersebut melalui pengaturan Bluetooth sistem smartphone Anda terlebih dahulu (masukkan PIN default printer jika diminta, biasanya `0000` atau `1234`).</li>
+                    <li>Buka aplikasi JagoKasir, masuk ke menu **Pengaturan > Pengaturan Printer**.</li>
+                    <li>Ketuk **Tambah Printer**, pilih jenis koneksi **Bluetooth**, dan cari nama printer thermal Anda yang telah dipasangkan.</li>
+                    <li>Pilih lebar kertas struk printer Anda (58mm atau 80mm), lalu simpan.</li>
+                    <li>Ketuk tombol **Cetak Test Struk** untuk memastikan koneksi printer berhasil berjalan dengan baik.</li>
+                </ol>
+            </section>
+
+            <section id="impor-csv" class="guide-section" style="padding: 0; border: none;">
+                <h2>Ekspor & Impor Produk via CSV</h2>
+                <p>Jika Anda memiliki ratusan produk, Anda dapat mengimpornya sekaligus secara massal menggunakan file template `.csv`:</p>
+                <ol>
+                    <li>Buka menu **Produk** di aplikasi, ketuk ikon menu di pojok kanan atas, lalu pilih **Download Template CSV**.</li>
+                    <li>Buka file CSV tersebut di laptop menggunakan aplikasi spreadsheet seperti Google Sheets atau Microsoft Excel.</li>
+                    <li>Isi kolom template dengan benar:
+                        <ul>
+                            <li><code>name</code>: Nama produk (Wajib).</li>
+                            <li><code>sku</code>: Kode SKU unik produk (Wajib).</li>
+                            <li><code>selling_price</code>: Harga jual (Wajib).</li>
+                            <li><code>cost_price</code>: Harga modal (Opsional).</li>
+                            <li><code>barcode</code>: Kode barcode produk (Opsional).</li>
+                        </ul>
+                    </li>
+                    <li>Ekspor kembali tabel tersebut ke format **CSV (.csv)**.</li>
+                    <li>Kirim file tersebut ke smartphone Anda, buka menu Produk > ketuk **Import CSV**, dan pilih file tersebut untuk memasukkan semua produk secara otomatis.</li>
+                </ol>
+            </section>
+
+            <section id="backup-restore" class="guide-section" style="padding: 0; border: none;">
+                <h2>Backup & Restore Database</h2>
+                <p>JagoKasir menyimpan data Anda secara offline. Untuk mencegah data hilang jika perangkat Anda rusak atau hilang, lakukan pencadangan data secara berkala:</p>
+                <ul>
+                    <li><strong>Backup Manual</strong>: Masuk ke menu **Pengaturan > Backup & Restore**, lalu ketuk **Buat Backup Baru**. File cadangan dalam format `.zip` (berisi enkripsi database) akan tersimpan di direktori penyimpanan telepon Anda.</li>
+                    <li><strong>Auto Backup</strong>: Aktifkan fitur pencadangan otomatis harian atau mingguan agar aplikasi mengamankan data secara terjadwal di latar belakang.</li>
+                    <li><strong>Restore</strong>: Untuk memulihkan data ke perangkat baru, salin file backup `.zip` Anda ke perangkat baru, buka menu Backup & Restore, ketuk **Restore Database**, lalu pilih file `.zip` tersebut. Aplikasi akan otomatis merefresh data.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/components.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Simple script to handle active state of sidebar nav links on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.guide-nav a');
+            const sections = document.querySelectorAll('.guide-content section');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 150;
+                    if (window.scrollY >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

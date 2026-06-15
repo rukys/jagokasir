@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JagoKasir | Aplikasi POS & Kasir Offline Pintar Gratis</title>
+    <meta name="description" content="JagoKasir: Aplikasi kasir offline pintar gratis tanpa biaya langganan untuk UMKM Indonesia. Kelola stok, cetak struk thermal, dan analisis laba rugi 100% lokal.">
+    <meta property="og:title" content="JagoKasir - Aplikasi Kasir Offline Pintar Gratis">
+    <meta property="og:description" content="Kelola transaksi toko Anda jauh lebih mudah, cepat, dan aman 100% offline. Tanpa internet, tanpa langganan.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rukys.github.io/jagokasir">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <canvas id="particles-canvas"></canvas>
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="badge"><i data-lucide="zap" style="width:14px;height:14px"></i> 100% Offline & Gratis</div>
+                <h1>Kelola Transaksi Toko Jauh Lebih <span>Pintar & Praktis</span></h1>
+                <p>JagoKasir adalah aplikasi Point of Sale (POS) offline-first yang dirancang untuk UMKM Indonesia. Cetak struk thermal, pantau stok barang, dan hitung laba bersih toko Anda tanpa koneksi internet.</p>
+                <div class="hero-btns">
+                    <a href="#downloads" class="btn-primary">Download App <i data-lucide="download"></i></a>
+                    <a href="#features" class="btn-secondary">Lihat Fitur</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-val">100%</span>
+                        <span class="stat-label">Offline-First</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-val">Rp 0</span>
+                        <span class="stat-label">Tanpa Langganan</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-val">Multi</span>
+                        <span class="stat-label">Staff Role</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-val">OSS</span>
+                        <span class="stat-label">Open Source</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/screenshots/jagokasir_ss3.png" alt="Dashboard JagoKasir">
+            </div>
+        </div>
+    </header>
+
+    <!-- Key Features Section -->
+    <section id="features">
+        <div class="container">
+            <div class="section-header reveal-element">
+                <h2>Fitur Unggulan JagoKasir</h2>
+                <p>Dilengkapi dengan fitur kasir tingkat korporasi yang disederhanakan khusus untuk kelancaran bisnis toko Anda.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal-element">
+                    <div class="feature-icon"><i data-lucide="store"></i></div>
+                    <h3>Kasir Offline-First</h3>
+                    <p>Transaksi super cepat tanpa bergantung pada kestabilan sinyal internet. Semua data penjualan tersimpan aman langsung di dalam memori penyimpanan perangkat Anda.</p>
+                </div>
+                <div class="feature-card reveal-element">
+                    <div class="feature-icon"><i data-lucide="printer"></i></div>
+                    <h3>Cetak Struk Thermal</h3>
+                    <p>Hubungkan dengan printer thermal Bluetooth (ukuran kertas 58mm atau 80mm) atau printer WiFi. Kustomisasi logo, info toko, serta ucapan terima kasih pada struk belanja.</p>
+                </div>
+                <div class="feature-card reveal-element">
+                    <div class="feature-icon"><i data-lucide="shield-check"></i></div>
+                    <h3>PIN Keamanan & Role Staff</h3>
+                    <p>Pisahkan hak akses untuk Owner, Admin, dan Kasir. Tindakan penting seperti menghapus (void) transaksi atau mengekspor laporan keuangan hanya bisa disetujui oleh Owner/Admin.</p>
+                </div>
+                <div class="feature-card reveal-element">
+                    <div class="feature-icon"><i data-lucide="package-search"></i></div>
+                    <h3>Manajemen Stok Lengkap</h3>
+                    <p>Pantau sisa stok barang, sesuaikan stok masuk/keluar secara manual, dan dapatkan notifikasi otomatis untuk produk yang hampir habis agar pasokan selalu terjaga.</p>
+                </div>
+                <div class="feature-card reveal-element">
+                    <div class="feature-icon"><i data-lucide="trending-up"></i></div>
+                    <h3>Analisis Laba Rugi Real-Time</h3>
+                    <p>Lupakan perhitungan manual. Dashboard pintar menyajikan omzet, margin keuntungan kotor, laba bersih, serta grafik visual penjualan harian yang interaktif.</p>
+                </div>
+                <div class="feature-card reveal-element">
+                    <div class="feature-icon"><i data-lucide="database"></i></div>
+                    <h3>Auto-Backup Terenkripsi</h3>
+                    <p>Jangan takut kehilangan data. Jadwalkan pencadangan database secara otomatis sebelum memori penuh. Restore data dari file backup dengan sekali ketukan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Gallery Section -->
+    <section id="screenshots">
+        <div class="container">
+            <div class="section-header reveal-element">
+                <h2>Tampilan Aplikasi</h2>
+                <p>Desain antarmuka (UI) minimalis dengan standar Material 3 yang intuitif, nyaman di mata, dan mudah dipahami oleh siapa saja.</p>
+            </div>
+            <div class="screenshots-container reveal-element">
+                <div class="screenshot-item"><img src="assets/screenshots/jagokasir_ss1.png" alt="Onboarding Screen"></div>
+                <div class="screenshot-item"><img src="assets/screenshots/jagokasir_ss2.png" alt="Login PIN Screen"></div>
+                <div class="screenshot-item"><img src="assets/screenshots/jagokasir_ss3.png" alt="Dashboard Utama"></div>
+                <div class="screenshot-item"><img src="assets/screenshots/jagokasir_ss4.png" alt="Keranjang Belanja"></div>
+                <div class="screenshot-item"><img src="assets/screenshots/jagokasir_ss5.png" alt="Halaman Pembayaran"></div>
+                <div class="screenshot-item"><img src="assets/screenshots/jagokasir_ss6.png" alt="Daftar Produk"></div>
+                <div class="screenshot-item"><img src="assets/screenshots/jagokasir_ss7.png" alt="Riwayat Stok Ledger"></div>
+                <div class="screenshot-item"><img src="assets/screenshots/jagokasir_ss8.png" alt="Laporan Penjualan Harian"></div>
+                <div class="screenshot-item"><img src="assets/screenshots/jagokasir_ss9.png" alt="Kustomisasi Struk Toko"></div>
+                <div class="screenshot-item"><img src="assets/screenshots/jagokasir_ss10.png" alt="Pengaturan Printer Thermal"></div>
+                <div class="screenshot-item"><img src="assets/screenshots/jagokasir_ss11.png" alt="Manajemen Staff Toko"></div>
+                <div class="screenshot-item"><img src="assets/screenshots/jagokasir_ss12.png" alt="Formulir Tambah Staff"></div>
+                <div class="screenshot-item"><img src="assets/screenshots/jagokasir_ss13.png" alt="Backup Database Terjadwal"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section id="tech">
+        <div class="container">
+            <div class="section-header reveal-element">
+                <h2>Teknologi Modern</h2>
+                <p>Dibangun menggunakan arsitektur software terstruktur untuk memberikan performa aplikasi yang ringan, stabil, dan andal.</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-card reveal-element">
+                    <div class="tech-icon"><i data-lucide="smartphone"></i></div>
+                    <div class="tech-info">
+                        <h4>Flutter SDK</h4>
+                        <p>Framework UI Multiplatform</p>
+                    </div>
+                </div>
+                <div class="tech-card reveal-element">
+                    <div class="tech-icon"><i data-lucide="git-branch"></i></div>
+                    <div class="tech-info">
+                        <h4>Riverpod 2.x</h4>
+                        <p>State Management & DI</p>
+                    </div>
+                </div>
+                <div class="tech-card reveal-element">
+                    <div class="tech-icon"><i data-lucide="database"></i></div>
+                    <div class="tech-info">
+                        <h4>SQLite (Sqflite)</h4>
+                        <p>Local-first Relational Database</p>
+                    </div>
+                </div>
+                <div class="tech-card reveal-element">
+                    <div class="tech-icon"><i data-lucide="area-chart"></i></div>
+                    <div class="tech-info">
+                        <h4>FL Chart</h4>
+                        <p>Grafik Penjualan Interaktif</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloads Section -->
+    <section id="downloads" style="background-color: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header reveal-element" style="margin-bottom: 40px;">
+                <h2>Unduh JagoKasir Gratis</h2>
+                <p>Mulai digitalisasi kasir toko Anda hari ini tanpa pendaftaran akun dan tanpa biaya subscription tersembunyi.</p>
+            </div>
+            <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;" class="reveal-element">
+                <a href="https://github.com/rukys/jagokasir/releases" class="btn-primary" style="padding: 16px 36px; font-size: 16px;">
+                    <i data-lucide="download"></i> Download APK Terupdate (Android)
+                </a>
+                <a href="guide.html" class="btn-secondary" style="padding: 16px 36px; font-size: 16px;">
+                    <i data-lucide="book-open"></i> Baca Panduan Instalasi
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="js/components.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
