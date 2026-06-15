@@ -9,18 +9,17 @@
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="screenshots/1_onboarding.png" width="19%" />
-  <img src="screenshots/2_pin_login.png" width="19%" />
-  <img src="screenshots/3_cashier_dashboard.png" width="19%" />
-  <img src="screenshots/4_cart_checkout.png" width="19%" />
-  <img src="screenshots/5_receipt_preview.png" width="19%" />
+  <img src="assets/screenshots/jagokasir_ss1.png" width="19%" />
+  <img src="assets/screenshots/jagokasir_ss2.png" width="19%" />
+  <img src="assets/screenshots/jagokasir_ss3.png" width="19%" />
+  <img src="assets/screenshots/jagokasir_ss4.png" width="19%" />
+  <img src="assets/screenshots/jagokasir_ss5.png" width="19%" />
 </p>
 <p align="center">
-  <img src="screenshots/6_product_management.png" width="19%" />
-  <img src="screenshots/7_stock_ledger.png" width="19%" />
-  <img src="screenshots/8_sales_reports.png" width="19%" />
-  <img src="screenshots/9_printer_config.png" width="19%" />
-  <img src="screenshots/10_backup_settings.png" width="19%" />
+  <img src="assets/screenshots/jagokasir_ss6.png" width="19%" />
+  <img src="assets/screenshots/jagokasir_ss7.png" width="19%" />
+  <img src="assets/screenshots/jagokasir_ss8.png" width="19%" />
+  <img src="assets/screenshots/jagokasir_ss9.png" width="19%" />
 </p>
 
 ---
