@@ -272,8 +272,8 @@ class BackupSettingsNotifier extends _$BackupSettingsNotifier {
         ),
       );
       ref.invalidate(backupHistoryProvider);
-    } catch (e) {
-      state = AsyncError(e, StackTrace.current);
+    } catch (error) {
+      state = AsyncError(error, StackTrace.current);
     }
   }
 }

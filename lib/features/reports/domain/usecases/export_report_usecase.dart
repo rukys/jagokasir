@@ -26,8 +26,8 @@ class ExportReportUsecase {
       );
 
       return right(unit);
-    } catch (e) {
-      return left(FileFailure('Gagal mengekspor laporan ke CSV: $e'));
+    } catch (error) {
+      return left(FileFailure('Gagal mengekspor laporan ke CSV: $error'));
     }
   }
 
@@ -47,8 +47,8 @@ class ExportReportUsecase {
       );
 
       return right(unit);
-    } catch (e) {
-      return left(FileFailure('Gagal mengekspor laporan ke PDF: $e'));
+    } catch (error) {
+      return left(FileFailure('Gagal mengekspor laporan ke PDF: $error'));
     }
   }
 }

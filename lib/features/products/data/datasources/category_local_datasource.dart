@@ -44,11 +44,11 @@ class CategoryLocalDatasource {
         conflictAlgorithm: ConflictAlgorithm.abort,
       );
       return model;
-    } on DatabaseException catch (e) {
-      if (e.isUniqueConstraintError()) {
+    } on DatabaseException catch (error) {
+      if (error.isUniqueConstraintError()) {
         throw const ConstraintException('Nama kategori sudah digunakan');
       }
-      throw DbException('Gagal menyimpan kategori', cause: e);
+      throw DbException('Gagal menyimpan kategori', cause: error);
     }
   }
 

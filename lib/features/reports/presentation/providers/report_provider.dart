@@ -73,7 +73,7 @@ ExportReportUsecase exportReportUsecase(Ref ref) {
 Future<SalesSummaryEntity> salesSummary(Ref ref, DateRange period) async {
   final usecase = ref.watch(getSalesSummaryUsecaseProvider);
   final result = await usecase(period);
-  return result.fold((failure) => throw failure, (summary) => summary);
+  return result.fold((failure) => throw failure, (salesSummary) => salesSummary);
 }
 
 @riverpod
@@ -342,8 +342,8 @@ class ExportReportNotifier extends _$ExportReportNotifier {
         (failure) => AsyncError(failure, StackTrace.current),
         (_) => const AsyncData(null),
       );
-    } catch (e) {
-      state = AsyncError(FileFailure('Gagal membuat laporan PDF: $e'), StackTrace.current);
+    } catch (error) {
+      state = AsyncError(FileFailure('Gagal membuat laporan PDF: $error'), StackTrace.current);
     }
   }
 

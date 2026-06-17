@@ -24,8 +24,8 @@ class PrinterRepositoryImpl implements PrinterRepository {
     try {
       final list = await _datasource.getAllPrinters();
       return right(list);
-    } catch (e) {
-      return left(DbFailure('Gagal mengambil daftar printer: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal mengambil daftar printer: $error'));
     }
   }
 
@@ -35,8 +35,8 @@ class PrinterRepositoryImpl implements PrinterRepository {
       final model = PrinterModel.fromEntity(printer);
       await _datasource.addPrinter(model);
       return right(null);
-    } catch (e) {
-      return left(DbFailure('Gagal menambahkan printer: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal menambahkan printer: $error'));
     }
   }
 
@@ -46,8 +46,8 @@ class PrinterRepositoryImpl implements PrinterRepository {
       final model = PrinterModel.fromEntity(printer);
       await _datasource.updatePrinter(model);
       return right(null);
-    } catch (e) {
-      return left(DbFailure('Gagal memperbarui printer: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal memperbarui printer: $error'));
     }
   }
 
@@ -56,8 +56,8 @@ class PrinterRepositoryImpl implements PrinterRepository {
     try {
       await _datasource.deletePrinter(id);
       return right(null);
-    } catch (e) {
-      return left(DbFailure('Gagal menghapus printer: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal menghapus printer: $error'));
     }
   }
 
@@ -66,8 +66,8 @@ class PrinterRepositoryImpl implements PrinterRepository {
     try {
       await _datasource.setDefaultPrinter(id);
       return right(null);
-    } catch (e) {
-      return left(DbFailure('Gagal mengatur printer default: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal mengatur printer default: $error'));
     }
   }
 
@@ -77,8 +77,8 @@ class PrinterRepositoryImpl implements PrinterRepository {
       final bytes = await _buildTestReceiptBytes(printer.paperWidth, storeConfig);
       await _writeSimulatedReceipt(printer, storeConfig, 'TEST PRINT RECEIPT\nKoneksi berhasil terhubung!');
       return await _sendToPrinter(printer, bytes);
-    } catch (e) {
-      return left(PrinterFailure('Gagal melakukan test print: $e'));
+    } catch (error) {
+      return left(PrinterFailure('Gagal melakukan test print: $error'));
     }
   }
 
@@ -93,8 +93,8 @@ class PrinterRepositoryImpl implements PrinterRepository {
       final simText = _buildReceiptTextSimulated(transaction, storeConfig, printer.paperWidth);
       await _writeSimulatedReceipt(printer, storeConfig, simText);
       return await _sendToPrinter(printer, bytes);
-    } catch (e) {
-      return left(PrinterFailure('Gagal mencetak struk: $e'));
+    } catch (error) {
+      return left(PrinterFailure('Gagal mencetak struk: $error'));
     }
   }
 
@@ -129,8 +129,8 @@ class PrinterRepositoryImpl implements PrinterRepository {
         }
         await bluetooth.writeBytes(Uint8List.fromList(bytes));
         return right(null);
-      } catch (e) {
-        return left(PrinterFailure('Koneksi Bluetooth gagal: $e'));
+      } catch (error) {
+        return left(PrinterFailure('Koneksi Bluetooth gagal: $error'));
       }
     } else {
       // WiFi Printer Connection (raw TCP Socket)
@@ -144,8 +144,8 @@ class PrinterRepositoryImpl implements PrinterRepository {
         await socket.flush();
         await socket.close();
         return right(null);
-      } catch (e) {
-        return left(PrinterFailure('Koneksi ke WiFi Printer gagal: $e'));
+      } catch (error) {
+        return left(PrinterFailure('Koneksi ke WiFi Printer gagal: $error'));
       }
     }
   }

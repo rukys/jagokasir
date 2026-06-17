@@ -15,8 +15,8 @@ class ProductRepositoryImpl implements ProductRepository {
   Future<Either<Failure, List<ProductEntity>>> getAll() async {
     try {
       return right(await _datasource.getAll());
-    } catch (e) {
-      return left(DbFailure('Gagal memuat produk: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal memuat produk: $error'));
     }
   }
 
@@ -24,8 +24,8 @@ class ProductRepositoryImpl implements ProductRepository {
   Future<Either<Failure, List<ProductEntity>>> getActive() async {
     try {
       return right(await _datasource.getActive());
-    } catch (e) {
-      return left(DbFailure('Gagal memuat produk aktif: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal memuat produk aktif: $error'));
     }
   }
 
@@ -33,10 +33,10 @@ class ProductRepositoryImpl implements ProductRepository {
   Future<Either<Failure, ProductEntity>> getById(String id) async {
     try {
       return right(await _datasource.getById(id));
-    } on NotFoundException catch (e) {
-      return left(NotFoundFailure(e.message));
-    } catch (e) {
-      return left(DbFailure('Gagal memuat produk: $e'));
+    } on NotFoundException catch (error) {
+      return left(NotFoundFailure(error.message));
+    } catch (error) {
+      return left(DbFailure('Gagal memuat produk: $error'));
     }
   }
 
@@ -49,8 +49,8 @@ class ProductRepositoryImpl implements ProductRepository {
       return right(
         await _datasource.search(query: query, categoryId: categoryId),
       );
-    } catch (e) {
-      return left(DbFailure('Gagal mencari produk: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal mencari produk: $error'));
     }
   }
 
@@ -59,10 +59,10 @@ class ProductRepositoryImpl implements ProductRepository {
     try {
       final model = ProductModel.fromEntity(product);
       return right(await _datasource.insert(model));
-    } on ConstraintException catch (e) {
-      return left(ValidationFailure(e.message));
-    } catch (e) {
-      return left(DbFailure('Gagal menyimpan produk: $e'));
+    } on ConstraintException catch (error) {
+      return left(ValidationFailure(error.message));
+    } catch (error) {
+      return left(DbFailure('Gagal menyimpan produk: $error'));
     }
   }
 
@@ -71,10 +71,10 @@ class ProductRepositoryImpl implements ProductRepository {
     try {
       final model = ProductModel.fromEntity(product);
       return right(await _datasource.update(model));
-    } on NotFoundException catch (e) {
-      return left(NotFoundFailure(e.message));
-    } catch (e) {
-      return left(DbFailure('Gagal memperbarui produk: $e'));
+    } on NotFoundException catch (error) {
+      return left(NotFoundFailure(error.message));
+    } catch (error) {
+      return left(DbFailure('Gagal memperbarui produk: $error'));
     }
   }
 
@@ -82,10 +82,10 @@ class ProductRepositoryImpl implements ProductRepository {
   Future<Either<Failure, ProductEntity>> toggleActive(String id) async {
     try {
       return right(await _datasource.toggleActive(id));
-    } on NotFoundException catch (e) {
-      return left(NotFoundFailure(e.message));
-    } catch (e) {
-      return left(DbFailure('Gagal mengubah status produk: $e'));
+    } on NotFoundException catch (error) {
+      return left(NotFoundFailure(error.message));
+    } catch (error) {
+      return left(DbFailure('Gagal mengubah status produk: $error'));
     }
   }
 
@@ -94,8 +94,8 @@ class ProductRepositoryImpl implements ProductRepository {
     try {
       await _datasource.softDelete(id);
       return right(unit);
-    } catch (e) {
-      return left(DbFailure('Gagal menghapus produk: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal menghapus produk: $error'));
     }
   }
 
@@ -108,8 +108,8 @@ class ProductRepositoryImpl implements ProductRepository {
       return right(
         await _datasource.checkSkuExists(sku, excludeId: excludeId),
       );
-    } catch (e) {
-      return left(DbFailure('Gagal mengecek SKU: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal mengecek SKU: $error'));
     }
   }
 
@@ -122,8 +122,8 @@ class ProductRepositoryImpl implements ProductRepository {
       return right(
         await _datasource.checkBarcodeExists(barcode, excludeId: excludeId),
       );
-    } catch (e) {
-      return left(DbFailure('Gagal mengecek barcode: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal mengecek barcode: $error'));
     }
   }
 
@@ -131,8 +131,8 @@ class ProductRepositoryImpl implements ProductRepository {
   Future<Either<Failure, ImportResult>> importCsv(String csvContent) async {
     try {
       return right(await _datasource.importCsv(csvContent));
-    } catch (e) {
-      return left(DbFailure('Gagal import CSV: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal import CSV: $error'));
     }
   }
 
@@ -140,8 +140,8 @@ class ProductRepositoryImpl implements ProductRepository {
   Future<Either<Failure, String>> exportCsv() async {
     try {
       return right(await _datasource.exportCsv());
-    } catch (e) {
-      return left(DbFailure('Gagal export CSV: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal export CSV: $error'));
     }
   }
 }

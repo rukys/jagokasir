@@ -275,14 +275,14 @@ class _CategoryDialogState extends State<_CategoryDialog> {
     }
     setState(() => _isLoading = true);
 
-    bool success;
+    bool isSuccess;
     if (widget.existing == null) {
-      success = await widget.ref.read(categoryNotifierProvider.notifier).create(
+      isSuccess = await widget.ref.read(categoryNotifierProvider.notifier).create(
         name: _nameCtrl.text.trim(),
         colorHex: _selectedColor,
       );
     } else {
-      success = await widget.ref.read(categoryNotifierProvider.notifier).update(
+      isSuccess = await widget.ref.read(categoryNotifierProvider.notifier).update(
         id: widget.existing!.id,
         name: _nameCtrl.text.trim(),
         colorHex: _selectedColor,
@@ -292,7 +292,7 @@ class _CategoryDialogState extends State<_CategoryDialog> {
     if (!mounted) return;
     setState(() => _isLoading = false);
 
-    if (success) {
+    if (isSuccess) {
       Navigator.pop(context);
       ErrorSnackbar.showSuccess(
         // ignore: use_build_context_synchronously

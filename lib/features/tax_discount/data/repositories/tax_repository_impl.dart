@@ -17,8 +17,8 @@ class TaxRepositoryImpl implements TaxRepository {
     try {
       final models = await _localDatasource.getAllTaxConfigs();
       return right(models);
-    } catch (e) {
-      return left(DbFailure('Gagal mengambil daftar pajak: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal mengambil daftar pajak: $error'));
     }
   }
 
@@ -27,8 +27,8 @@ class TaxRepositoryImpl implements TaxRepository {
     try {
       final model = await _localDatasource.getActiveTax();
       return right(model);
-    } catch (e) {
-      return left(DbFailure('Gagal mengambil pajak aktif: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal mengambil pajak aktif: $error'));
     }
   }
 
@@ -38,8 +38,8 @@ class TaxRepositoryImpl implements TaxRepository {
       final model = TaxConfigModel.fromEntity(tax);
       final result = await _localDatasource.createTaxConfig(model);
       return right(result);
-    } catch (e) {
-      return left(DbFailure('Gagal menyimpan konfigurasi pajak baru: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal menyimpan konfigurasi pajak baru: $error'));
     }
   }
 
@@ -49,8 +49,8 @@ class TaxRepositoryImpl implements TaxRepository {
       final model = TaxConfigModel.fromEntity(tax);
       final result = await _localDatasource.updateTaxConfig(model);
       return right(result);
-    } catch (e) {
-      return left(DbFailure('Gagal memperbarui konfigurasi pajak: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal memperbarui konfigurasi pajak: $error'));
     }
   }
 
@@ -59,8 +59,8 @@ class TaxRepositoryImpl implements TaxRepository {
     try {
       final success = await _localDatasource.setActiveTax(id);
       return right(success);
-    } catch (e) {
-      return left(DbFailure('Gagal mengaktifkan pajak: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal mengaktifkan pajak: $error'));
     }
   }
 
@@ -69,8 +69,8 @@ class TaxRepositoryImpl implements TaxRepository {
     try {
       final success = await _localDatasource.deleteTaxConfig(id);
       return right(success);
-    } catch (e) {
-      return left(DbFailure('Gagal menghapus konfigurasi pajak: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal menghapus konfigurasi pajak: $error'));
     }
   }
 }

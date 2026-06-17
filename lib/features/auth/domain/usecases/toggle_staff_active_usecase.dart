@@ -23,7 +23,7 @@ class ToggleStaffActiveUsecase {
         if (staff.role == StaffRole.owner && !active) {
           final countResult = await _repository.getActiveOwnerCount();
           final isPrevented = countResult.fold(
-            (f) => true,
+            (failure) => true,
             (count) => count <= 1,
           );
           if (isPrevented) {

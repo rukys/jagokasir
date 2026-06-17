@@ -344,7 +344,7 @@ class _TransactionListProviderElement
   DateTime? get endDate => (origin as TransactionListProvider).endDate;
 }
 
-String _$transactionDetailHash() => r'f2760d4f44041b99ab81d61680ed2f9a69837b63';
+String _$transactionDetailHash() => r'8a7f594db353594bdf1195b07dd3c35247a37d81';
 
 /// Provider untuk mengambil single transaksi berdasarkan ID
 ///
@@ -486,7 +486,7 @@ class _TransactionDetailProviderElement
   String get id => (origin as TransactionDetailProvider).id;
 }
 
-String _$checkoutNotifierHash() => r'56b250d6962d9934d3c70e4377d5c92e8c7d638e';
+String _$checkoutNotifierHash() => r'54ad0e34096890b870f3878658dc1a1e0983be11';
 
 /// See also [CheckoutNotifier].
 @ProviderFor(CheckoutNotifier)

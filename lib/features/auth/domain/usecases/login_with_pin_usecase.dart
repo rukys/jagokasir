@@ -37,7 +37,7 @@ class LoginWithPinUsecase {
               if (!isPinValid) {
                 return left(const ValidationFailure('PIN salah'));
               }
-            } catch (e) {
+            } catch (error) {
               return left(const ValidationFailure('PIN salah'));
             }
 

@@ -32,7 +32,7 @@ class CreateStaffUsecase {
 
     // 2. Cek onboarding. Jika belum onboarding, paksa role ke OWNER
     final onboardingResult = await _repository.checkOnboarding();
-    final isNotOnboarded = onboardingResult.fold((_) => true, (onboarded) => !onboarded);
+    final isNotOnboarded = onboardingResult.fold((_) => true, (isOnboarded) => !isOnboarded);
     
     final finalRole = isNotOnboarded ? StaffRole.owner : role;
 

@@ -99,11 +99,11 @@ class ProductLocalDatasource {
         });
       });
       return model;
-    } on DatabaseException catch (e) {
-      if (e.isUniqueConstraintError()) {
+    } on DatabaseException catch (error) {
+      if (error.isUniqueConstraintError()) {
         throw const ConstraintException('SKU atau barcode sudah digunakan');
       }
-      throw DbException('Gagal menyimpan produk', cause: e);
+      throw DbException('Gagal menyimpan produk', cause: error);
     }
   }
 
@@ -302,8 +302,8 @@ class ProductLocalDatasource {
           });
         });
         success++;
-      } catch (e) {
-        errors.add('Baris $rowNum: error — $e');
+      } catch (error) {
+        errors.add('Baris $rowNum: error — $error');
         skipped++;
       }
     }

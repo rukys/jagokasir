@@ -93,7 +93,7 @@ Future<TransactionEntity> transactionDetail(Ref ref, String id) async {
   final result = await usecase(id);
   return result.fold(
     (failure) => throw failure,
-    (txn) => txn,
+    (transaction) => transaction,
   );
 }
 
@@ -175,15 +175,15 @@ class CheckoutNotifier extends _$CheckoutNotifier {
         state = AsyncError(failure, StackTrace.current);
         return null;
       },
-      (txn) {
-        state = AsyncData(txn);
+      (transaction) {
+        state = AsyncData(transaction);
         // Invalidate status stok di UI
         ref.invalidate(stockListProvider);
         ref.invalidate(lowStockListProvider);
         ref.invalidate(lowStockCountProvider);
         // Bersihkan keranjang
         ref.read(cartNotifierProvider.notifier).clearCart();
-        return txn;
+        return transaction;
       },
     );
   }

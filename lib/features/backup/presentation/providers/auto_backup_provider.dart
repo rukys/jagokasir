@@ -20,8 +20,8 @@ class AutoBackupService extends _$AutoBackupService {
     try {
       final int? freeBytes = await _channel.invokeMethod<int>('getFreeSpace');
       return freeBytes ?? -1;
-    } catch (e) {
-      debugPrint('Gagal mengambil sisa ruang penyimpanan: $e');
+    } catch (error) {
+      debugPrint('Gagal mengambil sisa ruang penyimpanan: $error');
       return -1;
     }
   }
@@ -85,8 +85,8 @@ class AutoBackupService extends _$AutoBackupService {
         await prefs.setString('last_auto_backup_at', now.toIso8601String());
         debugPrint('Auto backup sukses dijalankan.');
       }
-    } catch (e) {
-      debugPrint('Gagal menjalankan auto backup: $e');
+    } catch (error) {
+      debugPrint('Gagal menjalankan auto backup: $error');
     }
   }
 }

@@ -43,8 +43,8 @@ Future<void> main() async {
       // Hapus flag setelah pemulihan sukses
       await flagFile.delete();
     }
-  } catch (e) {
-    debugPrint('Gagal melakukan pemulihan otomatis pada startup: $e');
+  } catch (error) {
+    debugPrint('Gagal melakukan pemulihan otomatis pada startup: $error');
   }
 
   // Paksa orientasi portrait

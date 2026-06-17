@@ -113,7 +113,7 @@ final deleteCategoryUsecaseProvider =
 
 typedef DeleteCategoryUsecaseRef
     = AutoDisposeProviderRef<DeleteCategoryUsecase>;
-String _$categoryListHash() => r'dc7a966313cd09cbe7ea9374ef1023c625167403';
+String _$categoryListHash() => r'b111342e10a0727ec982ef302c69c47f22b64fe1';
 
 /// Daftar semua kategori (is_deleted = 0).
 ///

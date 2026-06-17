@@ -17,8 +17,8 @@ class DiscountRepositoryImpl implements DiscountRepository {
     try {
       final models = await _localDatasource.getAllDiscountPresets();
       return right(models);
-    } catch (e) {
-      return left(DbFailure('Gagal mengambil daftar preset diskon: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal mengambil daftar preset diskon: $error'));
     }
   }
 
@@ -27,8 +27,8 @@ class DiscountRepositoryImpl implements DiscountRepository {
     try {
       final models = await _localDatasource.getActiveDiscountPresets();
       return right(models);
-    } catch (e) {
-      return left(DbFailure('Gagal mengambil preset diskon aktif: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal mengambil preset diskon aktif: $error'));
     }
   }
 
@@ -38,8 +38,8 @@ class DiscountRepositoryImpl implements DiscountRepository {
       final model = DiscountPresetModel.fromEntity(discount);
       final result = await _localDatasource.createDiscountPreset(model);
       return right(result);
-    } catch (e) {
-      return left(DbFailure('Gagal menyimpan preset diskon baru: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal menyimpan preset diskon baru: $error'));
     }
   }
 
@@ -49,8 +49,8 @@ class DiscountRepositoryImpl implements DiscountRepository {
       final model = DiscountPresetModel.fromEntity(discount);
       final result = await _localDatasource.updateDiscountPreset(model);
       return right(result);
-    } catch (e) {
-      return left(DbFailure('Gagal memperbarui preset diskon: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal memperbarui preset diskon: $error'));
     }
   }
 
@@ -59,8 +59,8 @@ class DiscountRepositoryImpl implements DiscountRepository {
     try {
       final result = await _localDatasource.toggleDiscountPreset(id, active);
       return right(result);
-    } catch (e) {
-      return left(DbFailure('Gagal mengubah status aktif preset diskon: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal mengubah status aktif preset diskon: $error'));
     }
   }
 
@@ -69,8 +69,8 @@ class DiscountRepositoryImpl implements DiscountRepository {
     try {
       final success = await _localDatasource.deleteDiscountPreset(id);
       return right(success);
-    } catch (e) {
-      return left(DbFailure('Gagal menghapus preset diskon: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal menghapus preset diskon: $error'));
     }
   }
 }

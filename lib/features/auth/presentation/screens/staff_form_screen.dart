@@ -42,8 +42,8 @@ class _StaffFormContentState extends ConsumerState<_StaffFormContent> {
   final _confirmPinController = TextEditingController();
 
   StaffRole _selectedRole = StaffRole.kasir;
-  bool _obscurePin = true;
-  bool _obscureConfirmPin = true;
+  bool _isObscurePin = true;
+  bool _isObscureConfirmPin = true;
   bool _isInitialized = false;
 
   @override
@@ -300,7 +300,7 @@ class _StaffFormContentState extends ConsumerState<_StaffFormContent> {
                         TextFormField(
                           controller: _pinController,
                           keyboardType: TextInputType.number,
-                          obscureText: _obscurePin,
+                           obscureText: _isObscurePin,
                           inputFormatters: [
                             LengthLimitingTextInputFormatter(6),
                             FilteringTextInputFormatter.digitsOnly,
@@ -310,13 +310,13 @@ class _StaffFormContentState extends ConsumerState<_StaffFormContent> {
                             prefixIcon: const Icon(Icons.lock_outline_rounded),
                             suffixIcon: IconButton(
                               icon: Icon(
-                                _obscurePin
+                                _isObscurePin
                                     ? Icons.visibility_off_outlined
                                     : Icons.visibility_outlined,
                               ),
                               onPressed: () {
                                 setState(() {
-                                  _obscurePin = !_obscurePin;
+                                  _isObscurePin = !_isObscurePin;
                                 });
                               },
                             ),
@@ -338,7 +338,7 @@ class _StaffFormContentState extends ConsumerState<_StaffFormContent> {
                         TextFormField(
                           controller: _confirmPinController,
                           keyboardType: TextInputType.number,
-                          obscureText: _obscureConfirmPin,
+                           obscureText: _isObscureConfirmPin,
                           inputFormatters: [
                             LengthLimitingTextInputFormatter(6),
                             FilteringTextInputFormatter.digitsOnly,
@@ -348,13 +348,13 @@ class _StaffFormContentState extends ConsumerState<_StaffFormContent> {
                             prefixIcon: const Icon(Icons.lock_outline_rounded),
                             suffixIcon: IconButton(
                               icon: Icon(
-                                _obscureConfirmPin
+                                _isObscureConfirmPin
                                     ? Icons.visibility_off_outlined
                                     : Icons.visibility_outlined,
                               ),
                               onPressed: () {
                                 setState(() {
-                                  _obscureConfirmPin = !_obscureConfirmPin;
+                                  _isObscureConfirmPin = !_isObscureConfirmPin;
                                 });
                               },
                             ),

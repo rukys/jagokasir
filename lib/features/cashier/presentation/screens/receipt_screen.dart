@@ -22,7 +22,7 @@ class ReceiptScreen extends ConsumerStatefulWidget {
 }
 
 class _ReceiptScreenState extends ConsumerState<ReceiptScreen> {
-  bool _autoPrinted = false;
+  bool _isAutoPrinted = false;
 
   void _showNoDefaultPrinterDialog(BuildContext context) {
     showDialog<void>(
@@ -49,7 +49,7 @@ class _ReceiptScreenState extends ConsumerState<ReceiptScreen> {
     );
   }
 
-  void _showPrintFailedDialog(BuildContext context, TransactionEntity txn) {
+  void _showPrintFailedDialog(BuildContext context, TransactionEntity transaction) {
     showDialog<void>(
       context: context,
       builder: (context) => AlertDialog(
@@ -65,13 +65,13 @@ class _ReceiptScreenState extends ConsumerState<ReceiptScreen> {
           TextButton(
             onPressed: () async {
               Navigator.pop(context);
-              final success = await ref.read(printNotifierProvider.notifier).printReceipt(txn);
+              final success = await ref.read(printNotifierProvider.notifier).printReceipt(transaction);
               if (success && context.mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('Struk berhasil dicetak!')),
                 );
               } else if (context.mounted) {
-                _showPrintFailedDialog(context, txn);
+                _showPrintFailedDialog(context, transaction);
               }
             },
             child: const Text('Coba Lagi'),
@@ -90,8 +90,8 @@ class _ReceiptScreenState extends ConsumerState<ReceiptScreen> {
     // Auto-print integration via ref.listen
     ref.listen(transactionDetailProvider(widget.transactionId), (previous, next) async {
       next.whenData((txn) async {
-        if (!_autoPrinted) {
-          _autoPrinted = true;
+        if (!_isAutoPrinted) {
+          _isAutoPrinted = true;
           try {
             final config = await ref.read(storeConfigProvider.future);
             if (config.autoPrint) {

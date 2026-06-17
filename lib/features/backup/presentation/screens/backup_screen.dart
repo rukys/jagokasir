@@ -800,10 +800,10 @@ class BackupScreen extends ConsumerWidget {
           );
         }
       }
-    } catch (e) {
+    } catch (error) {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Terjadi kesalahan: $e'), backgroundColor: AppColors.error),
+          SnackBar(content: Text('Terjadi kesalahan: $error'), backgroundColor: AppColors.error),
         );
       }
     }

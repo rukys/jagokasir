@@ -172,11 +172,11 @@ class _AddPrinterScreenState extends ConsumerState<AddPrinterScreen> with Single
           _stopScan();
         }
       });
-    } catch (e) {
+    } catch (error) {
       _stopScan();
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Gagal memulai pemindaian Bluetooth: $e')),
+          SnackBar(content: Text('Gagal memulai pemindaian Bluetooth: $error')),
         );
       }
     }

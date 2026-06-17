@@ -17,8 +17,8 @@ class StoreConfigRepositoryImpl implements StoreConfigRepository {
     try {
       final config = await _datasource.getStoreConfig();
       return right(config);
-    } catch (e) {
-      return left(DbFailure('Gagal mengambil konfigurasi toko: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal mengambil konfigurasi toko: $error'));
     }
   }
 
@@ -28,8 +28,8 @@ class StoreConfigRepositoryImpl implements StoreConfigRepository {
       final model = StoreConfigModel.fromEntity(config);
       await _datasource.updateStoreConfig(model);
       return right(null);
-    } catch (e) {
-      return left(DbFailure('Gagal memperbarui konfigurasi toko: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal memperbarui konfigurasi toko: $error'));
     }
   }
 }

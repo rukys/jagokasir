@@ -166,7 +166,7 @@ class _StockHistoryScreenState extends ConsumerState<StockHistoryScreen> {
           ? currentMin.toInt().toString()
           : currentMin.toStringAsFixed(2),
     );
-    bool trackStock = currentTrack;
+    bool isTrackStock = currentTrack;
 
     await showDialog<void>(
       context: context,
@@ -190,7 +190,7 @@ class _StockHistoryScreenState extends ConsumerState<StockHistoryScreen> {
 
               // Toggle track stock
               InkWell(
-                onTap: () => setSt(() => trackStock = !trackStock),
+                onTap: () => setSt(() => isTrackStock = !isTrackStock),
                 borderRadius: BorderRadius.circular(AppSpacing.radiusSm),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
@@ -216,8 +216,8 @@ class _StockHistoryScreenState extends ConsumerState<StockHistoryScreen> {
                         ),
                       ),
                       Switch(
-                        value: trackStock,
-                        onChanged: (v) => setSt(() => trackStock = v),
+                        value: isTrackStock,
+                        onChanged: (v) => setSt(() => isTrackStock = v),
                       ),
                     ],
                   ),
@@ -234,7 +234,7 @@ class _StockHistoryScreenState extends ConsumerState<StockHistoryScreen> {
               onPressed: () async {
                 final min = double.tryParse(minController.text) ?? 0;
                 Navigator.pop(ctx);
-                await onSave(min, trackStock);
+                await onSave(min, isTrackStock);
               },
               child: const Text('Simpan'),
             ),

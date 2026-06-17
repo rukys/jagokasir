@@ -17,8 +17,8 @@ class StaffRepositoryImpl implements StaffRepository {
     try {
       final result = await _datasource.checkOnboarding();
       return right(result);
-    } catch (e) {
-      return left(DbFailure('Gagal memeriksa status onboarding: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal memeriksa status onboarding: $error'));
     }
   }
 
@@ -27,8 +27,8 @@ class StaffRepositoryImpl implements StaffRepository {
     try {
       final result = await _datasource.getAllStaffs();
       return right(result);
-    } catch (e) {
-      return left(DbFailure('Gagal mengambil data staff: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal mengambil data staff: $error'));
     }
   }
 
@@ -40,8 +40,8 @@ class StaffRepositoryImpl implements StaffRepository {
         return left(const NotFoundFailure('Staff tidak ditemukan'));
       }
       return right(result);
-    } catch (e) {
-      return left(DbFailure('Gagal mengambil data staff: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal mengambil data staff: $error'));
     }
   }
 
@@ -51,8 +51,8 @@ class StaffRepositoryImpl implements StaffRepository {
       final model = StaffModel.fromEntity(staff);
       await _datasource.createStaff(model, pinHash);
       return right(staff);
-    } catch (e) {
-      return left(DbFailure('Gagal membuat staff baru: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal membuat staff baru: $error'));
     }
   }
 
@@ -62,8 +62,8 @@ class StaffRepositoryImpl implements StaffRepository {
       final model = StaffModel.fromEntity(staff);
       await _datasource.updateStaff(model);
       return right(staff);
-    } catch (e) {
-      return left(DbFailure('Gagal memperbarui data staff: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal memperbarui data staff: $error'));
     }
   }
 
@@ -76,8 +76,8 @@ class StaffRepositoryImpl implements StaffRepository {
         return left(const NotFoundFailure('Staff tidak ditemukan setelah update'));
       }
       return right(staff);
-    } catch (e) {
-      return left(DbFailure('Gagal memperbarui status aktif staff: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal memperbarui status aktif staff: $error'));
     }
   }
 
@@ -86,8 +86,8 @@ class StaffRepositoryImpl implements StaffRepository {
     try {
       await _datasource.resetStaffPin(id, pinHash);
       return right(true);
-    } catch (e) {
-      return left(DbFailure('Gagal mereset PIN staff: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal mereset PIN staff: $error'));
     }
   }
 
@@ -99,8 +99,8 @@ class StaffRepositoryImpl implements StaffRepository {
         return left(const NotFoundFailure('PIN hash tidak ditemukan'));
       }
       return right(hash);
-    } catch (e) {
-      return left(DbFailure('Gagal mengambil PIN hash: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal mengambil PIN hash: $error'));
     }
   }
 
@@ -114,8 +114,8 @@ class StaffRepositoryImpl implements StaffRepository {
         return left(const NotFoundFailure('Staff tidak ditemukan setelah update login'));
       }
       return right(staff);
-    } catch (e) {
-      return left(DbFailure('Gagal memperbarui waktu login terakhir: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal memperbarui waktu login terakhir: $error'));
     }
   }
 
@@ -124,8 +124,8 @@ class StaffRepositoryImpl implements StaffRepository {
     try {
       final count = await _datasource.getActiveOwnerCount();
       return right(count);
-    } catch (e) {
-      return left(DbFailure('Gagal menghitung jumlah Owner aktif: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal menghitung jumlah Owner aktif: $error'));
     }
   }
 }

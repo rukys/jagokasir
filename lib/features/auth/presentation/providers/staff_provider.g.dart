@@ -92,7 +92,7 @@ final resetStaffPinUsecaseProvider =
 );
 
 typedef ResetStaffPinUsecaseRef = AutoDisposeProviderRef<ResetStaffPinUsecase>;
-String _$staffListHash() => r'235dfcf1a80489330e0196a2e290b8a73a4c0170';
+String _$staffListHash() => r'1678aae461b004755a0b3b78f97672a64b182af1';
 
 /// Mengambil daftar semua staff
 ///

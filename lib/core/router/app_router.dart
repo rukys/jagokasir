@@ -84,7 +84,7 @@ GoRouter appRouter(AppRouterRef ref) {
       // 1. Cek onboarding
       final checkOnboarding = ref.read(checkOnboardingUsecaseProvider);
       final onboardingRes = await checkOnboarding();
-      final isOnboarded = onboardingRes.fold((_) => false, (v) => v);
+      final isOnboarded = onboardingRes.fold((_) => false, (isOnboarded) => isOnboarded);
 
       if (!isOnboarded) {
         // Jika belum onboarding, hanya izinkan masuk ke /onboarding

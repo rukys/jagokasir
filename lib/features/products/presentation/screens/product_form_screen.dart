@@ -489,7 +489,7 @@ class _BarcodeScannerScreen extends StatefulWidget {
 }
 
 class _BarcodeScannerScreenState extends State<_BarcodeScannerScreen> {
-  bool _scanned = false;
+  bool _isScanned = false;
   final MobileScannerController _controller = MobileScannerController();
 
   @override
@@ -515,10 +515,10 @@ class _BarcodeScannerScreenState extends State<_BarcodeScannerScreen> {
           MobileScanner(
             controller: _controller,
             onDetect: (capture) {
-              if (_scanned) return;
+              if (_isScanned) return;
               final barcode = capture.barcodes.firstOrNull;
               if (barcode?.rawValue != null) {
-                _scanned = true;
+                _isScanned = true;
                 Navigator.pop(context, barcode!.rawValue);
               }
             },

@@ -57,8 +57,8 @@ class TransactionRepositoryImpl implements TransactionRepository {
 
       final result = await _datasource.checkout(model);
       return right(result);
-    } catch (e) {
-      return left(DbFailure('Gagal menyimpan transaksi: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal menyimpan transaksi: $error'));
     }
   }
 
@@ -75,8 +75,8 @@ class TransactionRepositoryImpl implements TransactionRepository {
         reason: reason,
       );
       return right(success);
-    } catch (e) {
-      return left(DbFailure('Gagal membatalkan transaksi: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal membatalkan transaksi: $error'));
     }
   }
 
@@ -85,8 +85,8 @@ class TransactionRepositoryImpl implements TransactionRepository {
     try {
       final result = await _datasource.getTransactionById(id);
       return right(result);
-    } catch (e) {
-      return left(DbFailure('Transaksi tidak ditemukan: $e'));
+    } catch (error) {
+      return left(DbFailure('Transaksi tidak ditemukan: $error'));
     }
   }
 
@@ -107,8 +107,8 @@ class TransactionRepositoryImpl implements TransactionRepository {
         endDate: endDate,
       );
       return right(result);
-    } catch (e) {
-      return left(DbFailure('Gagal memuat daftar transaksi: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal memuat daftar transaksi: $error'));
     }
   }
 
@@ -117,8 +117,8 @@ class TransactionRepositoryImpl implements TransactionRepository {
     try {
       final count = await _datasource.getDailyInvoiceCount(dateStr);
       return right(count);
-    } catch (e) {
-      return left(DbFailure('Gagal menghitung transaksi harian: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal menghitung transaksi harian: $error'));
     }
   }
 }

@@ -69,8 +69,8 @@ class BackupRepositoryImpl implements BackupRepository {
     try {
       final list = await _datasource.getAll();
       return right(list);
-    } catch (e) {
-      return left(DbFailure('Gagal mengambil riwayat backup: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal mengambil riwayat backup: $error'));
     }
   }
 
@@ -215,10 +215,10 @@ class BackupRepositoryImpl implements BackupRepository {
       }
 
       return right(model);
-    } on FileSystemException catch (e) {
-      return left(FileFailure('Storage tidak mencukupi atau masalah file system: ${e.message}'));
-    } catch (e) {
-      return left(UnknownFailure('Gagal membuat backup: $e'));
+    } on FileSystemException catch (error) {
+      return left(FileFailure('Storage tidak mencukupi atau masalah file system: ${error.message}'));
+    } catch (error) {
+      return left(UnknownFailure('Gagal membuat backup: $error'));
     }
   }
 
@@ -234,8 +234,8 @@ class BackupRepositoryImpl implements BackupRepository {
         await _datasource.delete(id);
       }
       return right(unit);
-    } catch (e) {
-      return left(DbFailure('Gagal menghapus berkas backup dari database: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal menghapus berkas backup dari database: $error'));
     }
   }
 
@@ -304,11 +304,11 @@ class BackupRepositoryImpl implements BackupRepository {
       });
 
       return right(metadataMap);
-    } catch (e) {
-      if (e is FormatException) {
-        return left(ValidationFailure(e.message));
+    } catch (error) {
+      if (error is FormatException) {
+        return left(ValidationFailure(error.message));
       }
-      return left(FileFailure('Gagal melakukan validasi berkas backup: $e'));
+      return left(FileFailure('Gagal melakukan validasi berkas backup: $error'));
     }
   }
 
@@ -434,7 +434,7 @@ class BackupRepositoryImpl implements BackupRepository {
       }
 
       return right(unit);
-    } catch (e) {
+    } catch (error) {
       // 9. RECOVERY FLOW: Restore the safety-net database if restore fails in-flight
       try {
         if (safetyNetPath != null && File(safetyNetPath).existsSync()) {
@@ -467,7 +467,7 @@ class BackupRepositoryImpl implements BackupRepository {
         flagFile.deleteSync();
       }
 
-      return left(FileFailure('Pemulihan gagal: $e. Data dipulihkan ke safety-net.'));
+      return left(FileFailure('Pemulihan gagal: $error. Data dipulihkan ke safety-net.'));
     }
   }
 
@@ -483,8 +483,8 @@ class BackupRepositoryImpl implements BackupRepository {
         subject: p.basename(filePath),
       );
       return right(unit);
-    } catch (e) {
-      return left(FileFailure('Gagal membagikan berkas backup: $e'));
+    } catch (error) {
+      return left(FileFailure('Gagal membagikan berkas backup: $error'));
     }
   }
 }

@@ -17,8 +17,8 @@ class StockRepositoryImpl implements StockRepository {
   Future<Either<Failure, List<StockEntity>>> getAllStocks() async {
     try {
       return right(await _datasource.getAllStocks());
-    } catch (e) {
-      return left(DbFailure('Gagal memuat data stok: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal memuat data stok: $error'));
     }
   }
 
@@ -28,10 +28,10 @@ class StockRepositoryImpl implements StockRepository {
   ) async {
     try {
       return right(await _datasource.getStockByProduct(productId));
-    } on NotFoundException catch (e) {
-      return left(NotFoundFailure(e.message));
-    } catch (e) {
-      return left(DbFailure('Gagal memuat stok produk: $e'));
+    } on NotFoundException catch (error) {
+      return left(NotFoundFailure(error.message));
+    } catch (error) {
+      return left(DbFailure('Gagal memuat stok produk: $error'));
     }
   }
 
@@ -53,10 +53,10 @@ class StockRepositoryImpl implements StockRepository {
           staffId: staffId,
         ),
       );
-    } on NotFoundException catch (e) {
-      return left(NotFoundFailure(e.message));
-    } catch (e) {
-      return left(DbFailure('Gagal menyesuaikan stok: $e'));
+    } on NotFoundException catch (error) {
+      return left(NotFoundFailure(error.message));
+    } catch (error) {
+      return left(DbFailure('Gagal menyesuaikan stok: $error'));
     }
   }
 
@@ -66,8 +66,8 @@ class StockRepositoryImpl implements StockRepository {
   ) async {
     try {
       return right(await _datasource.getStockLedger(productId));
-    } catch (e) {
-      return left(DbFailure('Gagal memuat riwayat stok: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal memuat riwayat stok: $error'));
     }
   }
 
@@ -75,8 +75,8 @@ class StockRepositoryImpl implements StockRepository {
   Future<Either<Failure, List<StockEntity>>> getLowStockProducts() async {
     try {
       return right(await _datasource.getLowStockProducts());
-    } catch (e) {
-      return left(DbFailure('Gagal memuat produk stok rendah: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal memuat produk stok rendah: $error'));
     }
   }
 
@@ -94,10 +94,10 @@ class StockRepositoryImpl implements StockRepository {
           trackStock: trackStock,
         ),
       );
-    } on NotFoundException catch (e) {
-      return left(NotFoundFailure(e.message));
-    } catch (e) {
-      return left(DbFailure('Gagal memperbarui setting stok: $e'));
+    } on NotFoundException catch (error) {
+      return left(NotFoundFailure(error.message));
+    } catch (error) {
+      return left(DbFailure('Gagal memperbarui setting stok: $error'));
     }
   }
 }

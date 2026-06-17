@@ -43,7 +43,7 @@ class CheckoutUsecase {
 
         if (failureOrValidation.isLeft()) {
           // Kembalikan error stok pertama yang ditemukan
-          return failureOrValidation.fold((f) => left(f), (_) => right(transaction));
+          return failureOrValidation.fold((failure) => left(failure), (_) => right(transaction));
         }
       }
     }

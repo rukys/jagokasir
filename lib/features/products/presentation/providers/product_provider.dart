@@ -73,7 +73,7 @@ ExportProductsCsvUsecase exportProductsCsvUsecase(Ref ref) =>
 Future<List<ProductEntity>> productList(Ref ref) async {
   final usecase = ref.watch(getAllProductsUsecaseProvider);
   final result = await usecase();
-  return result.fold((f) => throw f, (p) => p);
+  return result.fold((failure) => throw failure, (product) => product);
 }
 
 /// Detail produk berdasarkan ID.
@@ -81,7 +81,7 @@ Future<List<ProductEntity>> productList(Ref ref) async {
 Future<ProductEntity> productDetail(Ref ref, String id) async {
   final usecase = ref.watch(getProductByIdUsecaseProvider);
   final result = await usecase(id);
-  return result.fold((f) => throw f, (p) => p);
+  return result.fold((failure) => throw failure, (product) => product);
 }
 
 /// Produk terfilter berdasarkan search query + kategori.
@@ -97,7 +97,7 @@ Future<List<ProductEntity>> filteredProducts(
     query: searchQuery,
     categoryId: categoryId,
   );
-  return result.fold((f) => throw f, (p) => p);
+  return result.fold((failure) => throw failure, (product) => product);
 }
 
 // ── Product Form State ──────────────────────────────────────────────────────

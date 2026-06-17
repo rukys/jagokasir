@@ -6,7 +6,7 @@ part of 'auto_backup_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$autoBackupServiceHash() => r'd583ccbcda063652cdebbc390051d4272054b915';
+String _$autoBackupServiceHash() => r'7022667fc35a3ed7adedc2211bf81800ee30c81f';
 
 /// See also [AutoBackupService].
 @ProviderFor(AutoBackupService)

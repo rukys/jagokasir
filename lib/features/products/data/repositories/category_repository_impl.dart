@@ -16,8 +16,8 @@ class CategoryRepositoryImpl implements CategoryRepository {
     try {
       final result = await _datasource.getAll();
       return right(result);
-    } catch (e) {
-      return left(DbFailure('Gagal memuat kategori: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal memuat kategori: $error'));
     }
   }
 
@@ -26,10 +26,10 @@ class CategoryRepositoryImpl implements CategoryRepository {
     try {
       final result = await _datasource.getById(id);
       return right(result);
-    } on NotFoundException catch (e) {
-      return left(NotFoundFailure(e.message));
-    } catch (e) {
-      return left(DbFailure('Gagal memuat kategori: $e'));
+    } on NotFoundException catch (error) {
+      return left(NotFoundFailure(error.message));
+    } catch (error) {
+      return left(DbFailure('Gagal memuat kategori: $error'));
     }
   }
 
@@ -41,10 +41,10 @@ class CategoryRepositoryImpl implements CategoryRepository {
       final model = CategoryModel.fromEntity(category);
       final result = await _datasource.insert(model);
       return right(result);
-    } on ConstraintException catch (e) {
-      return left(ValidationFailure(e.message));
-    } catch (e) {
-      return left(DbFailure('Gagal menyimpan kategori: $e'));
+    } on ConstraintException catch (error) {
+      return left(ValidationFailure(error.message));
+    } catch (error) {
+      return left(DbFailure('Gagal menyimpan kategori: $error'));
     }
   }
 
@@ -56,10 +56,10 @@ class CategoryRepositoryImpl implements CategoryRepository {
       final model = CategoryModel.fromEntity(category);
       final result = await _datasource.update(model);
       return right(result);
-    } on NotFoundException catch (e) {
-      return left(NotFoundFailure(e.message));
-    } catch (e) {
-      return left(DbFailure('Gagal memperbarui kategori: $e'));
+    } on NotFoundException catch (error) {
+      return left(NotFoundFailure(error.message));
+    } catch (error) {
+      return left(DbFailure('Gagal memperbarui kategori: $error'));
     }
   }
 
@@ -68,8 +68,8 @@ class CategoryRepositoryImpl implements CategoryRepository {
     try {
       await _datasource.delete(id);
       return right(unit);
-    } catch (e) {
-      return left(DbFailure('Gagal menghapus kategori: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal menghapus kategori: $error'));
     }
   }
 }

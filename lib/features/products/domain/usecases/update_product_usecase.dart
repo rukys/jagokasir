@@ -49,7 +49,7 @@ class UpdateProductUsecase {
       trimmedSku,
       excludeId: id,
     );
-    final skuExists = skuCheck.fold((_) => false, (exists) => exists);
+    final skuExists = skuCheck.fold((_) => false, (skuExists) => skuExists);
     if (skuExists) {
       return left(
         ValidationFailure('SKU "$trimmedSku" sudah digunakan produk lain'),
@@ -64,7 +64,7 @@ class UpdateProductUsecase {
         trimmedBarcode,
         excludeId: id,
       );
-      final bcExists = bcCheck.fold((_) => false, (exists) => exists);
+      final bcExists = bcCheck.fold((_) => false, (barcodeExists) => barcodeExists);
       if (bcExists) {
         return left(
           ValidationFailure(

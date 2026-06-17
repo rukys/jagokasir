@@ -29,7 +29,7 @@ class _ReceiptSettingsScreenState extends ConsumerState<ReceiptSettingsScreen> {
 
   // Settings
   String? _logoPath;
-  bool _autoPrint = true;
+  bool _isAutoPrint = true;
 
   @override
   void dispose() {
@@ -52,10 +52,10 @@ class _ReceiptSettingsScreenState extends ConsumerState<ReceiptSettingsScreen> {
           _logoPath = image.path;
         });
       }
-    } catch (e) {
+    } catch (error) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Gagal memilih gambar logo: $e')),
+          SnackBar(content: Text('Gagal memilih gambar logo: $error')),
         );
       }
     }
@@ -79,7 +79,7 @@ class _ReceiptSettingsScreenState extends ConsumerState<ReceiptSettingsScreen> {
       storePhone: _phoneController.text.trim().isNotEmpty ? _phoneController.text.trim() : null,
       receiptFooter: _footerController.text.trim().isNotEmpty ? _footerController.text.trim() : null,
       logoPath: _logoPath,
-      autoPrint: _autoPrint,
+      autoPrint: _isAutoPrint,
     );
 
     if (mounted) {
@@ -128,7 +128,7 @@ class _ReceiptSettingsScreenState extends ConsumerState<ReceiptSettingsScreen> {
           _phoneController.text = config.storePhone ?? '';
           _footerController.text = config.receiptFooter ?? '';
           _logoPath = config.logoPath;
-          _autoPrint = config.autoPrint;
+          _isAutoPrint = config.autoPrint;
           setState(() {});
         }
       });
@@ -160,7 +160,7 @@ class _ReceiptSettingsScreenState extends ConsumerState<ReceiptSettingsScreen> {
                 _phoneController.text = config.storePhone ?? '';
                 _footerController.text = config.receiptFooter ?? '';
                 _logoPath = config.logoPath;
-                _autoPrint = config.autoPrint;
+                _isAutoPrint = config.autoPrint;
               }
 
               return Form(
@@ -376,10 +376,10 @@ class _ReceiptSettingsScreenState extends ConsumerState<ReceiptSettingsScreen> {
     return Card(
       child: SwitchListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg, vertical: AppSpacing.sm),
-        value: _autoPrint,
+        value: _isAutoPrint,
         onChanged: (val) {
           setState(() {
-            _autoPrint = val;
+            _isAutoPrint = val;
           });
         },
         title: Text(

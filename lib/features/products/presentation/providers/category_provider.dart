@@ -52,7 +52,7 @@ DeleteCategoryUsecase deleteCategoryUsecase(Ref ref) {
 Future<List<CategoryEntity>> categoryList(Ref ref) async {
   final usecase = ref.watch(getAllCategoriesUsecaseProvider);
   final result = await usecase();
-  return result.fold((f) => throw f, (cats) => cats);
+  return result.fold((failure) => throw failure, (categories) => categories);
 }
 
 // ── Notifier (CRUD) ─────────────────────────────────────────────────────────

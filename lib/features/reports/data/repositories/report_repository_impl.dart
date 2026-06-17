@@ -20,8 +20,8 @@ class ReportRepositoryImpl implements ReportRepository {
     try {
       final summary = await _datasource.getSalesSummary(period);
       return right(summary);
-    } catch (e) {
-      return left(DbFailure('Gagal memuat ringkasan penjualan: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal memuat ringkasan penjualan: $error'));
     }
   }
 
@@ -33,8 +33,8 @@ class ReportRepositoryImpl implements ReportRepository {
     try {
       final list = await _datasource.getProductPerformance(period, sortByQty: sortByQty);
       return right(list);
-    } catch (e) {
-      return left(DbFailure('Gagal memuat performa produk: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal memuat performa produk: $error'));
     }
   }
 
@@ -43,8 +43,8 @@ class ReportRepositoryImpl implements ReportRepository {
     try {
       final list = await _datasource.getCategoryReport(period);
       return right(list);
-    } catch (e) {
-      return left(DbFailure('Gagal memuat laporan kategori: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal memuat laporan kategori: $error'));
     }
   }
 
@@ -53,8 +53,8 @@ class ReportRepositoryImpl implements ReportRepository {
     try {
       final list = await _datasource.getDailySalesTrend(period);
       return right(list);
-    } catch (e) {
-      return left(DbFailure('Gagal memuat tren penjualan harian: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal memuat tren penjualan harian: $error'));
     }
   }
 
@@ -63,8 +63,8 @@ class ReportRepositoryImpl implements ReportRepository {
     try {
       final name = await _datasource.getStoreName();
       return right(name);
-    } catch (e) {
-      return left(DbFailure('Gagal mengambil nama toko: $e'));
+    } catch (error) {
+      return left(DbFailure('Gagal mengambil nama toko: $error'));
     }
   }
 }

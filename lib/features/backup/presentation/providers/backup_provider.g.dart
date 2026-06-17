@@ -194,7 +194,7 @@ final restoreNotifierProvider =
 
 typedef _$RestoreNotifier = AutoDisposeNotifier<AsyncValue<void>>;
 String _$backupSettingsNotifierHash() =>
-    r'7cc604045260bc0ad66c3b47bfe52f0f79fb927d';
+    r'374a893aad575668796b77fefd240c1b77cead73';
 
 /// See also [BackupSettingsNotifier].
 @ProviderFor(BackupSettingsNotifier)

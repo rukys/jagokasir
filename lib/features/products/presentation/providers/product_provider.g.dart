@@ -200,7 +200,7 @@ final exportProductsCsvUsecaseProvider =
 
 typedef ExportProductsCsvUsecaseRef
     = AutoDisposeProviderRef<ExportProductsCsvUsecase>;
-String _$productListHash() => r'102de3f4fa36b863b5716af08b03d5cbd56dc2c1';
+String _$productListHash() => r'cc67fa6e31b4e597bdd459f5c47c7efe9e60de26';
 
 /// Semua produk (is_deleted = 0).
 ///
@@ -217,7 +217,7 @@ final productListProvider =
 );
 
 typedef ProductListRef = AutoDisposeFutureProviderRef<List<ProductEntity>>;
-String _$productDetailHash() => r'71226ed722822a6770d2e1e67741d50c57a0a0b9';
+String _$productDetailHash() => r'91ad42a497f3856b51c0b7f47d508378446a2dfa';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -379,7 +379,7 @@ class _ProductDetailProviderElement
   String get id => (origin as ProductDetailProvider).id;
 }
 
-String _$filteredProductsHash() => r'2489b552391da4891de3e71d50d701df83b0959b';
+String _$filteredProductsHash() => r'51a1ba7bfbd4afab75ec8a1be658a1ae50ef48c3';
 
 /// Produk terfilter berdasarkan search query + kategori.
 /// Dipakai di product list screen dengan debounce.

@@ -28,7 +28,7 @@ class UpdateStaffUsecase {
         if (currentStaff.role == StaffRole.owner && role != StaffRole.owner && currentStaff.isActive) {
           final countResult = await _repository.getActiveOwnerCount();
           final isPrevented = countResult.fold(
-            (f) => true,
+            (failure) => true,
             (count) => count <= 1,
           );
           if (isPrevented) {

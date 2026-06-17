@@ -42,7 +42,7 @@ ResetStaffPinUsecase resetStaffPinUsecase(Ref ref) =>
 Future<List<StaffEntity>> staffList(Ref ref) async {
   final usecase = ref.watch(getAllStaffUsecaseProvider);
   final result = await usecase();
-  return result.fold((f) => throw f, (list) => list);
+  return result.fold((failure) => throw failure, (resultList) => resultList);
 }
 
 /// Mengambil staff berdasarkan ID

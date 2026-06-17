@@ -146,7 +146,7 @@ final exportReportUsecaseProvider =
 );
 
 typedef ExportReportUsecaseRef = AutoDisposeProviderRef<ExportReportUsecase>;
-String _$salesSummaryHash() => r'45653b3323ae85bbc1386c7d2d329ec7a38b65fa';
+String _$salesSummaryHash() => r'ffff8f651bddda67749979d33eccbaa310006cb7';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -862,7 +862,7 @@ final storeNameProvider = AutoDisposeFutureProvider<String>.internal(
 
 typedef StoreNameRef = AutoDisposeFutureProviderRef<String>;
 String _$exportReportNotifierHash() =>
-    r'25547c28a162f0df78ae26c63c33ca8cf0027ce2';
+    r'f3455d7d9bc502a324f84541a5b087686f72a4ee';
 
 /// See also [ExportReportNotifier].
 @ProviderFor(ExportReportNotifier)
