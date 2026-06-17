@@ -56,20 +56,29 @@ class CartState {
 
 @riverpod
 class CartNotifier extends _$CartNotifier {
-  final List<CartItemEntity> _items = [];
-  DiscountType? _txnDiscountType;
-  double? _txnDiscountValue;
-
   @override
   CartState build() {
     // Watch active tax agar secara otomatis ter-recalculate saat setelan pajak aktif berubah
     final activeTax = ref.watch(activeTaxProvider).valueOrNull;
 
+    List<CartItemEntity> items = [];
+    DiscountType? discountType;
+    double? discountValue;
+
+    try {
+      final oldState = state;
+      items = oldState.items;
+      discountType = oldState.txnDiscountType;
+      discountValue = oldState.txnDiscountValue;
+    } catch (_) {
+      // First initialization, state is not yet initialized
+    }
+
     return CartState(
-      items: List.unmodifiable(_items),
-      txnDiscountType: _txnDiscountType,
-      txnDiscountValue: _txnDiscountValue,
-      summary: _calculateSummary(activeTax),
+      items: List.unmodifiable(items),
+      txnDiscountType: discountType,
+      txnDiscountValue: discountValue,
+      summary: _calculateSummary(items, discountType, discountValue, activeTax),
     );
   }
 
@@ -78,8 +87,8 @@ class CartNotifier extends _$CartNotifier {
     final prefs = await SharedPreferences.getInstance();
     final allowNegative = prefs.getBool('allow_negative_stock') ?? false;
 
-    final existingIndex = _items.indexWhere((item) => item.productId == product.id);
-    final currentQty = existingIndex != -1 ? _items[existingIndex].quantity : 0.0;
+    final existingIndex = state.items.indexWhere((item) => item.productId == product.id);
+    final currentQty = existingIndex != -1 ? state.items[existingIndex].quantity : 0.0;
     final targetQty = currentQty + qty;
 
     // Cek batas stok jika track_stock aktif dan negative stock dilarang
@@ -87,10 +96,11 @@ class CartNotifier extends _$CartNotifier {
       return 'Stok ${product.name} tidak mencukupi. Tersisa: ${stock.currentStock} ${stock.productUnit}';
     }
 
+    final newItems = List<CartItemEntity>.from(state.items);
     if (existingIndex != -1) {
-      _items[existingIndex] = _items[existingIndex].copyWith(quantity: targetQty);
+      newItems[existingIndex] = newItems[existingIndex].copyWith(quantity: targetQty);
     } else {
-      _items.add(
+      newItems.add(
         CartItemEntity(
           productId: product.id,
           productName: product.name,
@@ -105,7 +115,7 @@ class CartNotifier extends _$CartNotifier {
       );
     }
 
-    _updateState();
+    _updateState(items: newItems);
     return null;
   }
 
@@ -124,32 +134,35 @@ class CartNotifier extends _$CartNotifier {
       return 'Stok ${stock.productName} tidak mencukupi. Tersisa: ${stock.currentStock} ${stock.productUnit}';
     }
 
-    final index = _items.indexWhere((item) => item.productId == productId);
+    final index = state.items.indexWhere((item) => item.productId == productId);
     if (index != -1) {
-      _items[index] = _items[index].copyWith(quantity: quantity);
-      _updateState();
+      final newItems = List<CartItemEntity>.from(state.items);
+      newItems[index] = newItems[index].copyWith(quantity: quantity);
+      _updateState(items: newItems);
     }
     return null;
   }
 
   /// Menghapus item dari keranjang
   void removeItem(String productId) {
-    _items.removeWhere((item) => item.productId == productId);
-    _updateState();
+    final newItems = List<CartItemEntity>.from(state.items)
+      ..removeWhere((item) => item.productId == productId);
+    _updateState(items: newItems);
   }
 
   /// Menyetel diskon item tertentu
   String? setItemDiscount(String productId, DiscountType? type, double? value) {
-    final index = _items.indexWhere((item) => item.productId == productId);
+    final index = state.items.indexWhere((item) => item.productId == productId);
     if (index == -1) return 'Produk tidak ditemukan di keranjang';
 
+    final newItems = List<CartItemEntity>.from(state.items);
     if (type == null || value == null || value <= 0) {
-      _items[index] = _items[index].copyWith(clearDiscount: true);
-      _updateState();
+      newItems[index] = newItems[index].copyWith(clearDiscount: true);
+      _updateState(items: newItems);
       return null;
     }
 
-    final item = _items[index];
+    final item = state.items[index];
     final gross = item.sellingPrice * item.quantity;
 
     if (type == DiscountType.percentage) {
@@ -162,24 +175,22 @@ class CartNotifier extends _$CartNotifier {
       }
     }
 
-    _items[index] = _items[index].copyWith(
+    newItems[index] = newItems[index].copyWith(
       discountType: type,
       discountValue: value,
     );
-    _updateState();
+    _updateState(items: newItems);
     return null;
   }
 
   /// Menyetel diskon transaksi
   String? setTransactionDiscount(DiscountType? type, double? value) {
     if (type == null || value == null || value <= 0) {
-      _txnDiscountType = null;
-      _txnDiscountValue = null;
-      _updateState();
+      _updateState(clearDiscount: true);
       return null;
     }
 
-    final subtotal = _items.fold<double>(
+    final subtotal = state.items.fold<double>(
       0.0,
       (sum, item) => sum + item.lineTotal,
     );
@@ -194,22 +205,28 @@ class CartNotifier extends _$CartNotifier {
       }
     }
 
-    _txnDiscountType = type;
-    _txnDiscountValue = value;
-    _updateState();
+    _updateState(
+      txnDiscountType: type,
+      txnDiscountValue: value,
+    );
     return null;
   }
 
   /// Mengosongkan keranjang belanja
   void clearCart() {
-    _items.clear();
-    _txnDiscountType = null;
-    _txnDiscountValue = null;
-    _updateState();
+    _updateState(
+      items: [],
+      clearDiscount: true,
+    );
   }
 
-  PriceSummary _calculateSummary(TaxConfigEntity? activeTax) {
-    final inputItems = _items.map((e) {
+  PriceSummary _calculateSummary(
+    List<CartItemEntity> items,
+    DiscountType? txnDiscountType,
+    double? txnDiscountValue,
+    TaxConfigEntity? activeTax,
+  ) {
+    final inputItems = items.map((e) {
       return CartItemInput(
         sellingPrice: e.sellingPrice,
         quantity: e.quantity,
@@ -220,20 +237,29 @@ class CartNotifier extends _$CartNotifier {
 
     return PriceCalculator.calculateSummary(
       items: inputItems,
-      txnDiscountType: _txnDiscountType,
-      txnDiscountValue: _txnDiscountValue ?? 0.0,
+      txnDiscountType: txnDiscountType,
+      txnDiscountValue: txnDiscountValue ?? 0.0,
       taxRate: activeTax?.rate ?? 0.0,
       isTaxInclusive: activeTax?.isInclusive ?? false,
     );
   }
 
-  void _updateState() {
+  void _updateState({
+    List<CartItemEntity>? items,
+    DiscountType? txnDiscountType,
+    double? txnDiscountValue,
+    bool clearDiscount = false,
+  }) {
     final activeTax = ref.read(activeTaxProvider).valueOrNull;
+    final finalItems = items ?? state.items;
+    final finalDiscountType = clearDiscount ? null : (txnDiscountType ?? state.txnDiscountType);
+    final finalDiscountValue = clearDiscount ? null : (txnDiscountValue ?? state.txnDiscountValue);
+
     state = CartState(
-      items: List.unmodifiable(_items),
-      txnDiscountType: _txnDiscountType,
-      txnDiscountValue: _txnDiscountValue,
-      summary: _calculateSummary(activeTax),
+      items: List.unmodifiable(finalItems),
+      txnDiscountType: finalDiscountType,
+      txnDiscountValue: finalDiscountValue,
+      summary: _calculateSummary(finalItems, finalDiscountType, finalDiscountValue, activeTax),
     );
   }
 }

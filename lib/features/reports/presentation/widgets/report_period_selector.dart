@@ -79,9 +79,9 @@ class ReportPeriodSelector extends ConsumerWidget {
                       ref.read(customDateRangeProvider.notifier).state =
                           DateRange(
                         start: DateTime(picked.start.year, picked.start.month,
-                            picked.start.day, 0, 0, 0),
+                            picked.start.day, 0, 0, 0,),
                         end: DateTime(picked.end.year, picked.end.month,
-                            picked.end.day, 23, 59, 59, 999),
+                            picked.end.day, 23, 59, 59, 999,),
                       );
                       ref.read(selectedReportPeriodProvider.notifier).state = p;
                     }

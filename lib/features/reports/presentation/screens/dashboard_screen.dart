@@ -88,7 +88,7 @@ class DashboardScreen extends ConsumerWidget {
       backgroundColor: AppColors.background,
       appBar: AppBar(
         title: const Text('Dashboard',
-            style: TextStyle(fontWeight: FontWeight.bold)),
+            style: TextStyle(fontWeight: FontWeight.bold),),
         backgroundColor: Colors.transparent,
         elevation: 0,
         foregroundColor: AppColors.onBackground,
@@ -105,7 +105,7 @@ class DashboardScreen extends ConsumerWidget {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                       content: Text(
-                          'Tunggu data selesai dimuat sebelum ekspor PDF')),
+                          'Tunggu data selesai dimuat sebelum ekspor PDF',),),
                 );
                 return;
               }
@@ -137,7 +137,7 @@ class DashboardScreen extends ConsumerWidget {
             physics: const AlwaysScrollableScrollPhysics(),
             child: Padding(
               padding: const EdgeInsets.symmetric(
-                  horizontal: AppSpacing.pagePadding, vertical: AppSpacing.sm),
+                  horizontal: AppSpacing.pagePadding, vertical: AppSpacing.sm,),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -220,7 +220,7 @@ class DashboardScreen extends ConsumerWidget {
         borderRadius: BorderRadius.circular(AppSpacing.radiusLg),
         boxShadow: [
           BoxShadow(
-            color: AppColors.primary.withOpacity(0.2),
+            color: AppColors.primary.withValues(alpha: 0.2),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -230,9 +230,9 @@ class DashboardScreen extends ConsumerWidget {
         children: [
           CircleAvatar(
             radius: AppSpacing.avatarSizeLg / 2,
-            backgroundColor: AppColors.onPrimary.withOpacity(0.2),
+            backgroundColor: AppColors.onPrimary.withValues(alpha: 0.2),
             child: Icon(greetingIcon,
-                color: AppColors.onPrimary, size: AppSpacing.iconSizeLg),
+                color: AppColors.onPrimary, size: AppSpacing.iconSizeLg,),
           ),
           const Gap(AppSpacing.md),
           Expanded(
@@ -242,7 +242,7 @@ class DashboardScreen extends ConsumerWidget {
                 Text(
                   'Selamat $greeting,',
                   style: theme.textTheme.titleMedium?.copyWith(
-                    color: AppColors.onPrimary.withOpacity(0.8),
+                    color: AppColors.onPrimary.withValues(alpha: 0.8),
                   ),
                 ),
                 Text(
@@ -263,9 +263,9 @@ class DashboardScreen extends ConsumerWidget {
   Widget _buildLowStockAlert(BuildContext context, int count) {
     return Container(
       padding: const EdgeInsets.symmetric(
-          horizontal: AppSpacing.lg, vertical: AppSpacing.md),
+          horizontal: AppSpacing.lg, vertical: AppSpacing.md,),
       decoration: BoxDecoration(
-        color: AppColors.warningLight.withOpacity(0.3),
+        color: AppColors.warningLight.withValues(alpha: 0.3),
         border: Border.all(color: AppColors.warning, width: 0.8),
         borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
       ),
@@ -289,7 +289,7 @@ class DashboardScreen extends ConsumerWidget {
               visualDensity: VisualDensity.compact,
             ),
             child: const Text('LIHAT STOK',
-                style: TextStyle(fontWeight: FontWeight.bold)),
+                style: TextStyle(fontWeight: FontWeight.bold),),
           ),
         ],
       ),
@@ -345,10 +345,10 @@ class DashboardScreen extends ConsumerWidget {
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
         border: Border.all(
-            color: AppColors.outlineVariant.withOpacity(0.5), width: 0.8),
+            color: AppColors.outlineVariant.withValues(alpha: 0.5), width: 0.8,),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.02),
+            color: Colors.black.withValues(alpha: 0.02),
             blurRadius: 4,
             offset: const Offset(0, 2),
           ),
@@ -366,7 +366,7 @@ class DashboardScreen extends ConsumerWidget {
                 child: Text(
                   title,
                   style: const TextStyle(
-                      fontSize: 12, color: AppColors.onSurfaceVariant),
+                      fontSize: 12, color: AppColors.onSurfaceVariant,),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -379,7 +379,7 @@ class DashboardScreen extends ConsumerWidget {
             style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
-                color: AppColors.onSurface),
+                color: AppColors.onSurface,),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
@@ -407,7 +407,7 @@ class DashboardScreen extends ConsumerWidget {
               width: 20,
               height: 20,
               child: CircularProgressIndicator(
-                  strokeWidth: 2, color: AppColors.primary),
+                  strokeWidth: 2, color: AppColors.primary,),
             ),
           ),
         );
@@ -423,11 +423,11 @@ class DashboardScreen extends ConsumerWidget {
           color: AppColors.surface,
           borderRadius: BorderRadius.circular(AppSpacing.radiusLg),
           border: Border.all(
-              color: AppColors.outlineVariant.withOpacity(0.5), width: 0.8),
+              color: AppColors.outlineVariant.withValues(alpha: 0.5), width: 0.8,),
         ),
         child: const Center(
           child: Text('Belum ada data transaksi di periode ini',
-              style: TextStyle(color: AppColors.onSurfaceVariant)),
+              style: TextStyle(color: AppColors.onSurfaceVariant),),
         ),
       );
     }
@@ -447,7 +447,7 @@ class DashboardScreen extends ConsumerWidget {
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(AppSpacing.radiusLg),
         border: Border.all(
-            color: AppColors.outlineVariant.withOpacity(0.5), width: 0.8),
+            color: AppColors.outlineVariant.withValues(alpha: 0.5), width: 0.8,),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -455,7 +455,7 @@ class DashboardScreen extends ConsumerWidget {
           Text(
             'Tren Pendapatan Harian',
             style: theme.textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.bold, color: AppColors.onSurface),
+                fontWeight: FontWeight.bold, color: AppColors.onSurface,),
           ),
           const Gap(AppSpacing.lg),
           SizedBox(
@@ -466,16 +466,16 @@ class DashboardScreen extends ConsumerWidget {
                   show: true,
                   drawVerticalLine: false,
                   getDrawingHorizontalLine: (value) => FlLine(
-                    color: AppColors.outlineVariant.withOpacity(0.4),
+                    color: AppColors.outlineVariant.withValues(alpha: 0.4),
                     strokeWidth: 0.8,
                   ),
                 ),
                 titlesData: FlTitlesData(
                   show: true,
                   rightTitles: const AxisTitles(
-                      sideTitles: SideTitles(showTitles: false)),
+                      sideTitles: SideTitles(showTitles: false),),
                   topTitles: const AxisTitles(
-                      sideTitles: SideTitles(showTitles: false)),
+                      sideTitles: SideTitles(showTitles: false),),
                   bottomTitles: AxisTitles(
                     sideTitles: SideTitles(
                       showTitles: true,
@@ -483,13 +483,14 @@ class DashboardScreen extends ConsumerWidget {
                       interval: (trend.length / 5).clamp(1, 100).toDouble(),
                       getTitlesWidget: (value, meta) {
                         final index = value.toInt();
-                        if (index < 0 || index >= trend.length)
+                        if (index < 0 || index >= trend.length) {
                           return const SizedBox.shrink();
+                        }
                         final date = trend[index].date;
                         return Text(
                           '${date.day}/${date.month}',
                           style: const TextStyle(
-                              fontSize: 10, color: AppColors.onSurfaceVariant),
+                              fontSize: 10, color: AppColors.onSurfaceVariant,),
                         );
                       },
                     ),
@@ -499,8 +500,9 @@ class DashboardScreen extends ConsumerWidget {
                       showTitles: true,
                       reservedSize: 52,
                       getTitlesWidget: (value, meta) {
-                        if (value == maxY || value == 0)
+                        if (value == maxY || value == 0) {
                           return const SizedBox.shrink();
+                        }
                         String formatted;
                         if (value >= 1000000) {
                           formatted =
@@ -513,7 +515,7 @@ class DashboardScreen extends ConsumerWidget {
                         return Text(
                           formatted,
                           style: const TextStyle(
-                              fontSize: 9, color: AppColors.onSurfaceVariant),
+                              fontSize: 9, color: AppColors.onSurfaceVariant,),
                         );
                       },
                     ),
@@ -546,8 +548,8 @@ class DashboardScreen extends ConsumerWidget {
                       show: true,
                       gradient: LinearGradient(
                         colors: [
-                          AppColors.primary.withOpacity(0.25),
-                          AppColors.primary.withOpacity(0.0),
+                          AppColors.primary.withValues(alpha: 0.25),
+                          AppColors.primary.withValues(alpha: 0.0),
                         ],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
@@ -606,7 +608,7 @@ class DashboardScreen extends ConsumerWidget {
           style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: AppColors.onSurface),
+              color: AppColors.onSurface,),
         ),
         const Gap(AppSpacing.md),
         _buildMenuItem(
@@ -651,7 +653,7 @@ class DashboardScreen extends ConsumerWidget {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                     content: Text(
-                        'Akses ditolak. Menu ini hanya dapat diakses oleh Owner.')),
+                        'Akses ditolak. Menu ini hanya dapat diakses oleh Owner.',),),
               );
             }
           },
@@ -678,14 +680,14 @@ class DashboardScreen extends ConsumerWidget {
           color: AppColors.surface,
           borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
           border: Border.all(
-              color: AppColors.outlineVariant.withOpacity(0.5), width: 0.8),
+              color: AppColors.outlineVariant.withValues(alpha: 0.5), width: 0.8,),
         ),
         child: Row(
           children: [
             Container(
               padding: const EdgeInsets.all(AppSpacing.sm),
               decoration: BoxDecoration(
-                color: color.withOpacity(0.1),
+                color: color.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(AppSpacing.radiusSm),
               ),
               child: Icon(icon, color: color, size: AppSpacing.iconSizeMd),
@@ -701,12 +703,12 @@ class DashboardScreen extends ConsumerWidget {
                         title,
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: AppColors.onSurface),
+                            color: AppColors.onSurface,),
                       ),
                       if (isLocked) ...[
                         const Gap(AppSpacing.xs),
                         const Icon(Icons.lock_rounded,
-                            size: 14, color: AppColors.warning),
+                            size: 14, color: AppColors.warning,),
                       ],
                     ],
                   ),
@@ -714,13 +716,13 @@ class DashboardScreen extends ConsumerWidget {
                   Text(
                     subtitle,
                     style: const TextStyle(
-                        fontSize: 11, color: AppColors.onSurfaceVariant),
+                        fontSize: 11, color: AppColors.onSurfaceVariant,),
                   ),
                 ],
               ),
             ),
             const Icon(Icons.chevron_right_rounded,
-                color: AppColors.onSurfaceVariant),
+                color: AppColors.onSurfaceVariant,),
           ],
         ),
       ),

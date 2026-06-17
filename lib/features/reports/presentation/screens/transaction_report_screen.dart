@@ -123,13 +123,13 @@ class _TransactionReportScreenState extends ConsumerState<TransactionReportScree
       body: SafeArea(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(
+            const Padding(
+              padding: EdgeInsets.only(
                 left: AppSpacing.pagePadding,
                 right: AppSpacing.pagePadding,
                 top: AppSpacing.md,
               ),
-              child: const ReportPeriodSelector(),
+              child: ReportPeriodSelector(),
             ),
             // Filter section card
             _buildFilterCard(isOwnerOrAdmin, staffsAsync),
@@ -158,11 +158,11 @@ class _TransactionReportScreenState extends ConsumerState<TransactionReportScree
                   fillColor: AppColors.surface,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
-                    borderSide: BorderSide(color: AppColors.outlineVariant.withOpacity(0.5)),
+                    borderSide: BorderSide(color: AppColors.outlineVariant.withValues(alpha: 0.5)),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
-                    borderSide: BorderSide(color: AppColors.outlineVariant.withOpacity(0.5)),
+                    borderSide: BorderSide(color: AppColors.outlineVariant.withValues(alpha: 0.5)),
                   ),
                 ),
                 onChanged: (value) {
@@ -207,7 +207,7 @@ class _TransactionReportScreenState extends ConsumerState<TransactionReportScree
       decoration: BoxDecoration(
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
-        border: Border.all(color: AppColors.outlineVariant.withOpacity(0.5), width: 0.8),
+        border: Border.all(color: AppColors.outlineVariant.withValues(alpha: 0.5), width: 0.8),
       ),
       child: Column(
         children: [
@@ -311,7 +311,7 @@ class _TransactionReportScreenState extends ConsumerState<TransactionReportScree
       decoration: BoxDecoration(
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
-        border: Border.all(color: AppColors.outlineVariant.withOpacity(0.5), width: 0.8),
+        border: Border.all(color: AppColors.outlineVariant.withValues(alpha: 0.5), width: 0.8),
       ),
       child: ListTile(
         onTap: () {

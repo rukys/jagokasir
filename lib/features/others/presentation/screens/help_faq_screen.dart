@@ -149,7 +149,7 @@ class _HelpFaqScreenState extends State<HelpFaqScreen> {
       'Transaksi',
       'Backup',
       'Akun & Keamanan',
-      'Stok'
+      'Stok',
     ];
 
     return Scaffold(
@@ -168,7 +168,7 @@ class _HelpFaqScreenState extends State<HelpFaqScreen> {
           Container(
             color: Colors.white,
             padding: const EdgeInsets.fromLTRB(
-                AppSpacing.lg, AppSpacing.md, AppSpacing.lg, AppSpacing.sm),
+                AppSpacing.lg, AppSpacing.md, AppSpacing.lg, AppSpacing.sm,),
             child: TextField(
               controller: _searchController,
               decoration: InputDecoration(
@@ -178,7 +178,7 @@ class _HelpFaqScreenState extends State<HelpFaqScreen> {
                 suffixIcon: _searchController.text.isNotEmpty
                     ? IconButton(
                         icon: const Icon(Icons.clear_rounded,
-                            color: AppColors.outline),
+                            color: AppColors.outline,),
                         onPressed: () {
                           _searchController.clear();
                           setState(() {

@@ -35,7 +35,7 @@ class TaxSettingsScreen extends ConsumerWidget {
                 margin: const EdgeInsets.all(AppSpacing.pagePadding),
                 padding: const EdgeInsets.all(AppSpacing.md),
                 decoration: BoxDecoration(
-                  color: hasActive ? AppColors.successLight : AppColors.surfaceVariant.withOpacity(0.5),
+                  color: hasActive ? AppColors.successLight : AppColors.surfaceVariant.withValues(alpha: 0.5),
                   borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
                   border: Border.all(
                     color: hasActive ? AppColors.success : AppColors.outlineVariant,
@@ -324,7 +324,7 @@ class TaxSettingsScreen extends ConsumerWidget {
                   Container(
                     padding: const EdgeInsets.all(AppSpacing.md),
                     decoration: BoxDecoration(
-                      color: AppColors.surfaceVariant.withOpacity(0.3),
+                      color: AppColors.surfaceVariant.withValues(alpha: 0.3),
                       borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
                       border: Border.all(color: AppColors.outlineVariant),
                     ),

@@ -190,7 +190,7 @@ class _ReceiptScreenState extends ConsumerState<ReceiptScreen> {
                                   letterSpacing: 1.5,
                                 ),
                               ),
-                              SizedBox(height: AppSpacing.xs / 2),
+                              const SizedBox(height: AppSpacing.xs / 2),
                               const Text(
                                 'JagoKasir Offline UMKM',
                                 style: TextStyle(color: AppColors.outline, fontSize: 11),
@@ -250,7 +250,7 @@ class _ReceiptScreenState extends ConsumerState<ReceiptScreen> {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(height: AppSpacing.xs / 2),
+                                  const SizedBox(height: AppSpacing.xs / 2),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [

@@ -134,7 +134,7 @@ class _TransactionDetailScreenState extends ConsumerState<TransactionDetailScree
                         children: [
                           // Status Info Card
                           Card(
-                            color: isCompleted ? AppColors.successLight.withOpacity(0.3) : AppColors.dangerLight.withOpacity(0.3),
+                            color: isCompleted ? AppColors.successLight.withValues(alpha: 0.3) : AppColors.dangerLight.withValues(alpha: 0.3),
                             child: Padding(
                               padding: const EdgeInsets.all(AppSpacing.md),
                               child: Column(
@@ -149,7 +149,7 @@ class _TransactionDetailScreenState extends ConsumerState<TransactionDetailScree
                                         ),
                                       ),
                                       Container(
-                                        padding: EdgeInsets.symmetric(horizontal: AppSpacing.sm + 2, vertical: AppSpacing.xs / 2),
+                                        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.sm + 2, vertical: AppSpacing.xs / 2),
                                         decoration: BoxDecoration(
                                           color: isCompleted ? AppColors.successLight : AppColors.dangerLight,
                                           borderRadius: BorderRadius.circular(AppSpacing.radiusFull),
@@ -239,7 +239,7 @@ class _TransactionDetailScreenState extends ConsumerState<TransactionDetailScree
                                           ),
                                         ],
                                       ),
-                                      SizedBox(height: AppSpacing.xs / 2),
+                                      const SizedBox(height: AppSpacing.xs / 2),
                                       Row(
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [

@@ -70,13 +70,13 @@ class _CategoryReportScreenState extends ConsumerState<CategoryReportScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(
+            const Padding(
+              padding: EdgeInsets.only(
                 left: AppSpacing.pagePadding,
                 right: AppSpacing.pagePadding,
                 top: AppSpacing.md,
               ),
-              child: const ReportPeriodSelector(),
+              child: ReportPeriodSelector(),
             ),
             const Gap(AppSpacing.md),
             Expanded(

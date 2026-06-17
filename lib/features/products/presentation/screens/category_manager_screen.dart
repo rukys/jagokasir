@@ -348,7 +348,7 @@ class _CategoryDialogState extends State<_CategoryDialog> {
                     boxShadow: isSelected
                         ? [
                             BoxShadow(
-                              color: _parseColor(hex).withOpacity(0.4),
+                              color: _parseColor(hex).withValues(alpha: 0.4),
                               blurRadius: 6,
                             ),
                           ]

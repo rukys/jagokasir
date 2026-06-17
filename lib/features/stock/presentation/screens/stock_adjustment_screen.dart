@@ -335,9 +335,9 @@ class _ProductInfoCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(AppSpacing.md),
       decoration: BoxDecoration(
-        color: AppColors.primaryContainer.withOpacity(0.5),
+        color: AppColors.primaryContainer.withValues(alpha: 0.5),
         borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
-        border: Border.all(color: AppColors.primary.withOpacity(0.3)),
+        border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
       ),
       child: Row(
         children: [
@@ -415,7 +415,7 @@ class _ModeButton extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: AppSpacing.md),
           decoration: BoxDecoration(
             color: isActive
-                ? activeColor.withOpacity(0.12)
+                ? activeColor.withValues(alpha: 0.12)
                 : AppColors.surfaceVariant,
             borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
             border: Border.all(

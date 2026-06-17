@@ -56,7 +56,7 @@ class BackupSettingsScreen extends ConsumerWidget {
               side: const BorderSide(color: AppColors.outlineVariant),
             ),
             child: SwitchListTile(
-              activeColor: AppColors.primary,
+              activeThumbColor: AppColors.primary,
               title: const Text(
                 'Auto Backup Aktif',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
@@ -268,7 +268,7 @@ class BackupSettingsScreen extends ConsumerWidget {
       builder: (context) => AlertDialog(
         title: const Text('Bersihkan Cadangan Lama?'),
         content: Text(
-          'Sistem akan menghapus seluruh file cadangan lokal lama dan hanya menyisakan maksimal $limit berkas cadangan terbaru.\n\nApakah Anda ingin melanjutkan?'
+          'Sistem akan menghapus seluruh file cadangan lokal lama dan hanya menyisakan maksimal $limit berkas cadangan terbaru.\n\nApakah Anda ingin melanjutkan?',
         ),
         actions: [
           TextButton(

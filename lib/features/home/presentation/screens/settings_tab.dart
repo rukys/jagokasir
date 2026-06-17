@@ -7,9 +7,9 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spacing.dart';
 import '../../../../core/router/app_routes.dart';
+import '../../../../shared/providers/app_lifecycle_provider.dart';
 import '../../../auth/domain/entities/staff_entity.dart';
 import '../../../auth/presentation/providers/auth_provider.dart';
-import '../../../../shared/providers/app_lifecycle_provider.dart';
 
 class SettingsTab extends ConsumerWidget {
   const SettingsTab({super.key});
@@ -306,9 +306,9 @@ class SettingsTab extends ConsumerWidget {
                 ),
                 const SizedBox(height: AppSpacing.xs),
                 Container(
-                  padding: EdgeInsets.symmetric(
+                  padding: const EdgeInsets.symmetric(
                       horizontal: AppSpacing.sm + 2,
-                      vertical: AppSpacing.xs - 1),
+                      vertical: AppSpacing.xs - 1,),
                   decoration: BoxDecoration(
                     color: badgeBg,
                     borderRadius: BorderRadius.circular(AppSpacing.radiusFull),
@@ -396,7 +396,7 @@ class SettingsTab extends ConsumerWidget {
   }
 
   void _showTimeoutSelectionDialog(
-      BuildContext context, WidgetRef ref, int currentTimeout) {
+      BuildContext context, WidgetRef ref, int currentTimeout,) {
     showDialog<void>(
       context: context,
       builder: (context) {
@@ -422,7 +422,7 @@ class SettingsTab extends ConsumerWidget {
             return AlertDialog(
               title: const Text('Waktu Kunci Layar'),
               contentPadding: const EdgeInsets.only(
-                  top: AppSpacing.md, bottom: AppSpacing.sm),
+                  top: AppSpacing.md, bottom: AppSpacing.sm,),
               content: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,

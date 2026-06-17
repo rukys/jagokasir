@@ -10,9 +10,11 @@ import '../models/product_performance_model.dart';
 import '../models/sales_summary_model.dart';
 
 class ReportLocalDatasource {
-  const ReportLocalDatasource();
+  final Database? databaseOverride;
 
-  Future<Database> get _db async => DatabaseHelper.instance.database;
+  const ReportLocalDatasource({this.databaseOverride});
+
+  Future<Database> get _db async => databaseOverride ?? await DatabaseHelper.instance.database;
 
   /// Mengambil ringkasan penjualan (total revenue, transaksi, item terjual, payment methods)
   Future<SalesSummaryModel> getSalesSummary(DateRange period) async {

@@ -272,11 +272,11 @@ class _StockHeaderCard extends StatelessWidget {
           colors: isLow
               ? [
                   AppColors.dangerLight,
-                  AppColors.dangerLight.withOpacity(0.6),
+                  AppColors.dangerLight.withValues(alpha: 0.6),
                 ]
               : [
                   AppColors.primaryContainer,
-                  AppColors.primaryContainer.withOpacity(0.6),
+                  AppColors.primaryContainer.withValues(alpha: 0.6),
                 ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -284,8 +284,8 @@ class _StockHeaderCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
         border: Border.all(
           color: isLow
-              ? AppColors.danger.withOpacity(0.4)
-              : AppColors.primary.withOpacity(0.3),
+              ? AppColors.danger.withValues(alpha: 0.4)
+              : AppColors.primary.withValues(alpha: 0.3),
         ),
       ),
       child: Column(
@@ -466,7 +466,7 @@ class _LedgerEntry extends StatelessWidget {
                         vertical: 2,
                       ),
                       decoration: BoxDecoration(
-                        color: reasonInfo.$2.withOpacity(0.15),
+                        color: reasonInfo.$2.withValues(alpha: 0.15),
                         borderRadius:
                             BorderRadius.circular(AppSpacing.radiusSm),
                       ),

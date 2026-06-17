@@ -181,7 +181,7 @@ class _StaffListContent extends ConsumerWidget {
                     vertical: AppSpacing.xs,
                   ),
                   leading: CircleAvatar(
-                    backgroundColor: roleBg.withOpacity(0.3),
+                    backgroundColor: roleBg.withValues(alpha: 0.3),
                     child: Text(
                       staff.name.isNotEmpty ? staff.name[0].toUpperCase() : '?',
                       style: TextStyle(

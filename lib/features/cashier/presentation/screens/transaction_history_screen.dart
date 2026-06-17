@@ -113,7 +113,7 @@ class _TransactionHistoryScreenState extends ConsumerState<TransactionHistoryScr
                   decoration: const InputDecoration(
                     hintText: 'Cari nomor invoice...',
                     prefixIcon: Icon(Icons.search_rounded),
-                    contentPadding: const EdgeInsets.symmetric(vertical: AppSpacing.sm + 2),
+                    contentPadding: EdgeInsets.symmetric(vertical: AppSpacing.sm + 2),
                   ),
                 ),
                 const SizedBox(height: AppSpacing.sm),
@@ -222,7 +222,7 @@ class _TransactionHistoryScreenState extends ConsumerState<TransactionHistoryScr
                                     ),
                                   ),
                                   Container(
-                                    padding: EdgeInsets.symmetric(horizontal: AppSpacing.sm, vertical: AppSpacing.xs / 2),
+                                    padding: const EdgeInsets.symmetric(horizontal: AppSpacing.sm, vertical: AppSpacing.xs / 2),
                                     decoration: BoxDecoration(
                                       color: isCompleted ? AppColors.successLight : AppColors.dangerLight,
                                       borderRadius: BorderRadius.circular(AppSpacing.radiusFull),
@@ -263,7 +263,7 @@ class _TransactionHistoryScreenState extends ConsumerState<TransactionHistoryScr
                                         style: const TextStyle(fontSize: 13, color: AppColors.onSurfaceVariant),
                                       ),
                                       if (currentStaff?.role != StaffRole.kasir) ...[
-                                        SizedBox(height: AppSpacing.xs / 2),
+                                        const SizedBox(height: AppSpacing.xs / 2),
                                         Text(
                                           'Kasir: ${txn.staffName ?? "Staff"}',
                                           style: const TextStyle(fontSize: 11, color: AppColors.outline),

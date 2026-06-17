@@ -90,13 +90,13 @@ class _ProductPerformanceScreenState extends ConsumerState<ProductPerformanceScr
       body: SafeArea(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(
+            const Padding(
+              padding: EdgeInsets.only(
                 left: AppSpacing.pagePadding,
                 right: AppSpacing.pagePadding,
                 top: AppSpacing.md,
               ),
-              child: const ReportPeriodSelector(),
+              child: ReportPeriodSelector(),
             ),
             // Sorting Selector Toggle
             _buildSortToggle(),
@@ -153,7 +153,7 @@ class _ProductPerformanceScreenState extends ConsumerState<ProductPerformanceScr
       decoration: BoxDecoration(
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(AppSpacing.radiusFull),
-        border: Border.all(color: AppColors.outlineVariant.withOpacity(0.5), width: 0.8),
+        border: Border.all(color: AppColors.outlineVariant.withValues(alpha: 0.5), width: 0.8),
       ),
       child: Row(
         children: [
@@ -241,7 +241,7 @@ class _ProductPerformanceScreenState extends ConsumerState<ProductPerformanceScr
       decoration: BoxDecoration(
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
-        border: Border.all(color: AppColors.outlineVariant.withOpacity(0.5), width: 0.8),
+        border: Border.all(color: AppColors.outlineVariant.withValues(alpha: 0.5), width: 0.8),
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,

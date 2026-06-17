@@ -52,7 +52,7 @@ class LoadingOverlay extends StatelessWidget {
     final theme = Theme.of(context);
 
     return ColoredBox(
-      color: backgroundColor ?? Colors.black.withOpacity(0.4),
+      color: backgroundColor ?? Colors.black.withValues(alpha: 0.4),
       child: Center(
         child: Container(
           padding: const EdgeInsets.all(28),

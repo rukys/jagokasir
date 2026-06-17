@@ -60,13 +60,13 @@ class _ProfitReportScreenState extends ConsumerState<ProfitReportScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(
+            const Padding(
+              padding: EdgeInsets.only(
                 left: AppSpacing.pagePadding,
                 right: AppSpacing.pagePadding,
                 top: AppSpacing.md,
               ),
-              child: const ReportPeriodSelector(),
+              child: ReportPeriodSelector(),
             ),
             const Gap(AppSpacing.md),
             Expanded(
@@ -160,10 +160,10 @@ class _ProfitReportScreenState extends ConsumerState<ProfitReportScreen> {
       decoration: BoxDecoration(
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(AppSpacing.radiusLg),
-        border: Border.all(color: AppColors.outlineVariant.withOpacity(0.5), width: 0.8),
+        border: Border.all(color: AppColors.outlineVariant.withValues(alpha: 0.5), width: 0.8),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.02),
+            color: Colors.black.withValues(alpha: 0.02),
             blurRadius: 4,
             offset: const Offset(0, 2),
           ),
@@ -187,7 +187,7 @@ class _ProfitReportScreenState extends ConsumerState<ProfitReportScreen> {
                   ],
                 ),
               ),
-              Container(width: 1, height: 40, color: AppColors.outlineVariant.withOpacity(0.5)),
+              Container(width: 1, height: 40, color: AppColors.outlineVariant.withValues(alpha: 0.5)),
               const Gap(AppSpacing.md),
               Expanded(
                 child: Column(
@@ -236,7 +236,7 @@ class _ProfitReportScreenState extends ConsumerState<ProfitReportScreen> {
                   ],
                 ),
               ),
-              Container(width: 1, height: 40, color: AppColors.outlineVariant.withOpacity(0.5)),
+              Container(width: 1, height: 40, color: AppColors.outlineVariant.withValues(alpha: 0.5)),
               const Gap(AppSpacing.md),
               Expanded(
                 child: Column(
@@ -270,7 +270,7 @@ class _ProfitReportScreenState extends ConsumerState<ProfitReportScreen> {
       decoration: BoxDecoration(
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
-        border: Border.all(color: AppColors.outlineVariant.withOpacity(0.5), width: 0.8),
+        border: Border.all(color: AppColors.outlineVariant.withValues(alpha: 0.5), width: 0.8),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

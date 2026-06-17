@@ -1,19 +1,20 @@
 // lib/features/backup/presentation/screens/backup_screen.dart
 
 import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_spacing.dart';
 import '../../../../shared/widgets/permission_guard.dart';
 import '../../../auth/domain/entities/staff_entity.dart';
 import '../../domain/entities/backup_history_entity.dart';
-import '../providers/backup_provider.dart';
 import '../providers/auto_backup_provider.dart';
+import '../providers/backup_provider.dart';
 
 class BackupScreen extends ConsumerWidget {
   const BackupScreen({super.key});
@@ -351,7 +352,7 @@ class BackupScreen extends ConsumerWidget {
         padding: const EdgeInsets.symmetric(vertical: 48, horizontal: 24),
         child: Column(
           children: [
-            Icon(
+            const Icon(
               Icons.inventory_2_outlined,
               size: 64,
               color: AppColors.outlineVariant,
@@ -411,7 +412,7 @@ class BackupScreen extends ConsumerWidget {
             builder: (context) => AlertDialog(
               title: const Text('Hapus Cadangan?'),
               content: Text(
-                'Apakah Anda yakin ingin menghapus berkas cadangan "${item.fileName}"?\nTindakan ini permanen.'
+                'Apakah Anda yakin ingin menghapus berkas cadangan "${item.fileName}"?\nTindakan ini permanen.',
               ),
               actions: [
                 TextButton(

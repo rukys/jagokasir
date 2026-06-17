@@ -139,7 +139,7 @@ class PinLoginScreen extends ConsumerWidget {
                                   width: 64,
                                   height: 64,
                                   decoration: BoxDecoration(
-                                    color: roleBg.withOpacity(0.3),
+                                    color: roleBg.withValues(alpha: 0.3),
                                     shape: BoxShape.circle,
                                   ),
                                   alignment: Alignment.center,

@@ -367,7 +367,7 @@ class _StockCard extends StatelessWidget {
           color: AppColors.surface,
           borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
           border: Border.all(
-            color: isLow ? AppColors.danger.withOpacity(0.4) : AppColors.outlineVariant,
+            color: isLow ? AppColors.danger.withValues(alpha: 0.4) : AppColors.outlineVariant,
             width: isLow ? 1.5 : 1,
           ),
         ),
