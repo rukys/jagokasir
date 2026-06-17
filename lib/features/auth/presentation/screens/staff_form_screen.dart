@@ -173,6 +173,7 @@ class _StaffFormContentState extends ConsumerState<_StaffFormContent> {
                 confirmPin: confirmController.text,
               );
 
+              if (!mounted) return;
               if (ctx.mounted) {
                 Navigator.pop(ctx);
                 if (success) {

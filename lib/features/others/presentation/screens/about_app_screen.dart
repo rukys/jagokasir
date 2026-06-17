@@ -32,24 +32,11 @@ class AboutAppScreen extends StatelessWidget {
             Center(
               child: Column(
                 children: [
-                  Container(
-                    padding: const EdgeInsets.all(AppSpacing.xl),
-                    decoration: BoxDecoration(
-                      color: AppColors.primaryContainer,
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: AppColors.primary.withValues(alpha: 0.15),
-                          blurRadius: 16,
-                          offset: const Offset(0, 4),
-                        ),
-                      ],
-                    ),
-                    child: const Icon(
-                      Icons.shopping_basket_rounded,
-                      color: AppColors.primary,
-                      size: 64,
-                    ),
+                  Image.asset(
+                    'assets/images/jagokasirlogo.png',
+                    width: 96,
+                    height: 96,
+                    fit: BoxFit.contain,
                   ),
                   const SizedBox(height: AppSpacing.lg),
                   Text(

@@ -122,6 +122,7 @@ class _ProductFormScreenState extends ConsumerState<ProductFormScreen> {
         confirmText: 'Ya, Lanjutkan',
       );
       if (confirmed != true) return;
+      if (!mounted) return;
     }
 
     final costPrice =

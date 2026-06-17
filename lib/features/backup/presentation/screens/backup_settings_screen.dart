@@ -1,3 +1,4 @@
+// ignore_for_file: unawaited_futures
 // lib/features/backup/presentation/screens/backup_settings_screen.dart
 
 import 'package:flutter/material.dart';
@@ -106,7 +107,9 @@ class BackupSettingsScreen extends ConsumerWidget {
                         title: const Text('Harian', style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
                         subtitle: const Text('Backup dilakukan otomatis setiap hari sekali.', style: TextStyle(fontSize: 11)),
                         value: 'daily',
+                        // ignore: deprecated_member_use
                         groupValue: settings.frequency,
+                        // ignore: deprecated_member_use
                         onChanged: (val) {
                           if (val != null) notifier.setFrequency(val);
                         },
@@ -117,7 +120,9 @@ class BackupSettingsScreen extends ConsumerWidget {
                         title: const Text('Mingguan', style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
                         subtitle: const Text('Backup dilakukan otomatis setiap seminggu sekali.', style: TextStyle(fontSize: 11)),
                         value: 'weekly',
+                        // ignore: deprecated_member_use
                         groupValue: settings.frequency,
+                        // ignore: deprecated_member_use
                         onChanged: (val) {
                           if (val != null) notifier.setFrequency(val);
                         },

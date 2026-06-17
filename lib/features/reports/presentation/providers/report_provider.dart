@@ -400,4 +400,3 @@ final currentReportDateRangeProvider = Provider<DateRange>((ref) {
   }
   return DateRange.fromPeriod(period);
 });
-

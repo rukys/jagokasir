@@ -58,7 +58,7 @@ class _IdleLockDialogState extends State<IdleLockDialog> {
             final authNotifier = ref.read(authNotifierProvider.notifier);
             final success = await authNotifier.login(widget.staff.id, _pin);
 
-            if (!mounted) return;
+            if (!context.mounted) return;
 
             if (success) {
               widget.onUnlocked();

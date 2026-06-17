@@ -1,3 +1,4 @@
+// ignore_for_file: unawaited_futures
 // lib/features/backup/presentation/screens/backup_screen.dart
 
 import 'dart:io';
@@ -563,6 +564,7 @@ class BackupScreen extends ConsumerWidget {
         final freeSpace = await ref.read(autoBackupServiceProvider.notifier).getFreeSpace();
         final isSpaceLow = freeSpace > 0 && freeSpace < 50 * 1024 * 1024; // < 50MB
 
+        if (!context.mounted) return;
         if (isSpaceLow) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(

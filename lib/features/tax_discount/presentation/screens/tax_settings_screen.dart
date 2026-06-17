@@ -190,8 +190,10 @@ class TaxSettingsScreen extends ConsumerWidget {
                           onTap: () => _showTaxBottomSheet(context, ref, tax),
                           leading: Radio<bool>(
                             value: true,
+                            // ignore: deprecated_member_use
                             groupValue: tax.isActive ? true : null,
                             activeColor: AppColors.primary,
+                            // ignore: deprecated_member_use
                             onChanged: (_) async {
                               if (!tax.isActive) {
                                 await ref

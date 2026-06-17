@@ -407,8 +407,10 @@ class SettingsTab extends ConsumerWidget {
               return RadioListTile<int>(
                 title: Text(label),
                 value: value,
+                // ignore: deprecated_member_use
                 groupValue: selectedValue,
                 activeColor: AppColors.primary,
+                // ignore: deprecated_member_use
                 onChanged: (val) {
                   if (val != null) {
                     setDialogState(() {
